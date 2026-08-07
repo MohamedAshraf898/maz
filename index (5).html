@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>فازة الخرشوفه – MAZ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header><button id="cart-open" aria-label="السلة">♧ <b id="cart-count">0</b></button><button
+            aria-label="البحث">⌕</button><a href="#" class="logo">MAZ<small>DECORATIONS</small></a><button
+            aria-label="البحث">⌕</button></header>
+    <main>
+        <section class="product">
+            <div class="gallery">
+                <div class="stage"><img id="featured" alt=""><button id="prev" aria-label="السابق">›</button><button
+                        id="next" aria-label="التالي">‹</button></div>
+                <div id="thumbs" class="thumbs"></div>
+            </div>
+            <aside class="panel">
+                <h1>فازة الخرشوفه</h1><i class="underline"></i>
+                <div class="price">AED 1,800.00</div>
+                <p class="tax">الأسعار شاملة الضريبة. الشحن يُحسب عند إتمام الطلب.</p>
+                <fieldset>
+                    <legend>اللون:</legend>
+                    <div id="variants"></div>
+                </fieldset>
+                <div class="qty"><button data-q="1">＋</button><input id="quantity" type="number" value="1" min="1"
+                        max="2"><button data-q="-1">−</button></div>
+                <div class="offers"><label class="active"><input type="radio" name="offer" value="1"
+                            checked><i></i><b>قطعه واحده</b><span>AED 1,800.00</span></label><label><input type="radio"
+                            name="offer" value="2"><i></i><b>قطعتان</b><em>وفر AED 300</em><span>AED 3,300.00<s>AED
+                                3,600.00</s></span></label></div><button id="buy" class="buy">اشتري الآن</button>
+                <div class="trust">
+                    <article><span>◉</span>
+                        <div><b>تصميم قبل التنفيذ</b>
+                            <p>شاهد المنتج في مساحتك قبل بدء التصنيع.</p>
+                        </div>
+                    </article>
+                    <article><span>3Y</span>
+                        <div><b>ضمان 3 سنوات</b>
+                            <p>جودة تصنيع عالية تضمن لك منتجًا يدوم لسنوات.</p>
+                        </div>
+                    </article>
+                    <article><span>☼</span>
+                        <div><b>مقاوم لعوامل الطقس</b>
+                            <p>مصنوع من الألومنيوم المقاوم للحرارة والرطوبة.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="payments"><span>Pay</span><span>G
+                        Pay</span><span>VISA</span><span>●●</span><span>Mastercard</span><span>AmEx</span></div>
+            </aside>
+        </section>
+        <section class="accordions">
+            <article><button>الوصف<i></i></button>
+                <div hidden>
+                    <p>شجرة الخرشوفة وفازتها قطعة ديكور معمارية مصنوعة من الألومنيوم عالي الجودة، تمنح المداخل والمجالس
+                        حضورًا راقيًا.</p>
+                </div>
+            </article>
+            <article><button>الخامات<i></i></button>
+                <div hidden>
+                    <p>ألومنيوم عالي الجودة، جذع خشبي طبيعي محنط، وشجرة أريكا صناعية للاستخدام الداخلي والخارجي.</p>
+                </div>
+            </article>
+            <article><button>الاسترجاع<i></i></button>
+                <div hidden>
+                    <p>يمكن الاسترجاع خلال 30 يومًا من الشراء.</p>
+                </div>
+            </article>
+        </section>
+        <section class="features">
+            <article>↗<b>خفيفة الوزن</b></article>
+            <article>◇<b>مقاومة للرطوبة</b></article>
+            <article>✦<b>متينة وتدوم</b></article>
+        </section>
+        <section class="description">
+            <div><small>خامات مصممة لتدوم</small>
+                <h2>أناقة معمارية تناسب كل مساحة</h2>
+                <p>صُممت شجرة الخرشوفة وفازتها من الألومنيوم عالي الجودة لتجمع بين سهولة النقل والتنظيف والمتانة.</p>
+            </div><img id="lifestyle" alt="فازة الخرشوفة في غرفة معيشة">
+        </section>
+        <section class="related"><small>اكتشف المزيد</small>
+            <h2>منتجات قد تعجبك</h2>
+            <div id="related"></div>
+        </section>
+    </main>
+    <footer><a class="logo">MAZ<small>DECORATIONS</small></a>
+        <p>قطع ديكور إماراتية بتصاميم حصرية، مصنوعة لتدوم.</p>
+        <p>جميع الحقوق محفوظة © MAZ</p>
+    </footer>
+    <div class="sticky">
+        <div><b>فازة الخرشوفه</b><span>AED 1,800.00</span></div><button>أضف إلى السلة</button>
+    </div>
+    <dialog id="cart"><button id="cart-close">×</button>
+        <h2>سلة التسوق</h2>
+        <div id="cart-items"></div>
+        <p class="total">الإجمالي <b>AED 0.00</b></p><button class="buy">إتمام الطلب</button>
+    </dialog>
+    <div id="toast"></div>
+</body>
+
+</html>
