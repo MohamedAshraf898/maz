@@ -99,39 +99,6 @@ header button {
     font-size: 30px
 }
 
-.accordions article>button {
-    -webkit-appearance: none;
-    appearance: none;
-
-    background: transparent;
-    color: #111111 !important;
-
-    -webkit-text-fill-color: #111111;
-}
-
-.accordions article>button:hover,
-.accordions article>button:active,
-.accordions article>button:focus,
-.accordions article>button.open {
-    color: #111111 !important;
-    background: transparent;
-    -webkit-text-fill-color: #111111;
-}
-
-.accordions article>button i,
-.accordions article>button::before,
-.accordions article>button::after {
-    color: #111111;
-    -webkit-text-fill-color: #111111;
-}
-
-.accordions button,
-.accordions button * {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit !important;
-    text-decoration: none !important;
-}
-
 .stage #prev {
     color: #000 !important;
     right: 8px
