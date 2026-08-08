@@ -84,6 +84,266 @@
                 <p>صُممت شجرة الخرشوفة وفازتها من الألومنيوم عالي الجودة لتجمع بين سهولة النقل والتنظيف والمتانة.</p>
             </div><img id="lifestyle" alt="فازة الخرشوفة في غرفة معيشة">
         </section>
+        <style>
+            .ct-wrap {
+                direction: rtl;
+                text-align: center;
+                font-family: inherit;
+                max-width: 900px;
+                margin: 40px auto;
+                padding: 0 16px;
+            }
+
+            .ct-header {
+                margin-bottom: 32px;
+            }
+
+            .ct-title {
+                font-size: 28px;
+                font-weight: 700;
+                color: #111827;
+                margin: 0 0 8px;
+            }
+
+            .ct-title span {
+                color: #2F6F4E;
+            }
+
+            .ct-subtitle {
+                font-size: 15px;
+                color: #6b7280;
+                margin: 0;
+            }
+
+            .ct-table {
+                width: 100%;
+            }
+
+            .ct-row {
+                display: grid;
+                grid-template-columns: 1.6fr 1fr 1fr 1fr;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            .ct-row--header {
+                margin-bottom: 16px;
+            }
+
+            /* SHIFT ONLY THE FIRST ROW COLUMNS LEFT */
+            .ct-header-shift {
+                transform: translateX(-20px);
+            }
+
+            .ct-cell {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .ct-cell--label {
+                justify-content: flex-end;
+            }
+
+            .ct-label-pill {
+                width: 100%;
+                background: #f3f4f6;
+                color: #374151;
+                font-size: 14px;
+                font-weight: 500;
+                text-align: right;
+                padding: 12px 18px;
+                border-radius: 999px;
+            }
+
+            .ct-cell--head {
+                font-size: 13px;
+                font-weight: 700;
+                color: #111827;
+            }
+
+            .ct-hero-pill {
+                width: 100%;
+                background: linear-gradient(90deg, #2F6F4E, #1E4B33);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+                padding: 10px 0;
+                border-radius: 999px;
+                display: block;
+            }
+
+            .ct-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .ct-icon--boxed {
+                width: 26px;
+                height: 26px;
+                background: #2F6F4E;
+                border-radius: 6px;
+            }
+
+            .ct-icon--cross {
+                color: #ef4444;
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            @media (max-width: 768px) {
+                .ct-title {
+                    font-size: 22px;
+                }
+
+                .ct-row {
+                    grid-template-columns: 1.4fr 0.9fr 0.9fr 0.9fr;
+                    gap: 6px;
+                }
+
+                .ct-label-pill {
+                    font-size: 12px;
+                    padding: 10px 10px;
+                }
+
+                .ct-cell--head,
+                .ct-hero-pill {
+                    font-size: 11px;
+                }
+
+                .ct-icon--boxed {
+                    width: 22px;
+                    height: 22px;
+                }
+
+                .ct-icon--boxed svg {
+                    width: 13px;
+                    height: 13px;
+                }
+
+                .ct-icon--cross {
+                    font-size: 16px;
+                }
+
+                /* Smaller shift on mobile */
+                .ct-header-shift {
+                    transform: translateX(-80px);
+                }
+            }
+
+            @media (max-width: 380px) {
+                .ct-row {
+                    grid-template-columns: 1.3fr 0.85fr 0.85fr 0.85fr;
+                    gap: 4px;
+                }
+
+                .ct-label-pill {
+                    font-size: 10.5px;
+                    padding: 8px 6px;
+                }
+
+                .ct-cell--head,
+                .ct-hero-pill {
+                    font-size: 9.5px;
+                }
+
+                .ct-icon--boxed {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                .ct-icon--boxed svg {
+                    width: 11px;
+                    height: 11px;
+                }
+
+                .ct-icon--cross {
+                    font-size: 14px;
+                }
+
+                .ct-header-shift {
+                    transform: translateX(-56px);
+                }
+            }
+        </style>
+
+        <div class="ct-wrap">
+            <div class="ct-header">
+                <h2 class="ct-title">لماذا <span>MAZ</span> هو الخيار الأمثل.</h2>
+                <p class="ct-subtitle">الجودة التي تدوم، بدون تنازلات.</p>
+            </div>
+
+            <div class="ct-table">
+
+                <div class="ct-row ct-row--header">
+                    <div class="ct-cell ct-cell--label"></div>
+
+                    <div class="ct-cell ct-header-shift">
+                        <span class="ct-hero-pill">MAZ</span>
+                    </div>
+
+                    <div class="ct-cell ct-cell--head ct-header-shift">
+                        تقليد سعودي
+                    </div>
+
+                    <div class="ct-cell ct-cell--head ct-header-shift">
+                        مستورد
+                    </div>
+                </div>
+
+                {%- assign rows = "تصميم خالد|1|0|0,جودة تدوم|1|0|0,دقة في التصميم|1|0|0,ألومنيوم فاخر|1|0|0,تفاصيل
+                راقية|1|0|0,فخامة هادئة|1|0|0,تصميم ذكي|1|0|0,أناقة عصرية|1|0|0,صناعة متقنة|1|0|0" | split: "," -%}
+
+                {%- for row in rows -%}
+                {%- assign parts = row | split: "|" -%}
+                <div class="ct-row">
+                    <div class="ct-cell ct-cell--label">
+                        <span class="ct-label-pill">{{ parts[0] }}</span>
+                    </div>
+
+                    <div class="ct-cell">
+                        {%- if parts[1] == "1" -%}
+                        <span class="ct-icon ct-icon--boxed"><svg viewBox="0 0 24 24" width="16" height="16"
+                                fill="none">
+                                <path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span>
+                        {%- else -%}
+                        <span class="ct-icon ct-icon--cross">✕</span>
+                        {%- endif -%}
+                    </div>
+
+                    <div class="ct-cell">
+                        {%- if parts[2] == "1" -%}
+                        <span class="ct-icon ct-icon--boxed"><svg viewBox="0 0 24 24" width="16" height="16"
+                                fill="none">
+                                <path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span>
+                        {%- else -%}
+                        <span class="ct-icon ct-icon--cross">✕</span>
+                        {%- endif -%}
+                    </div>
+
+                    <div class="ct-cell">
+                        {%- if parts[3] == "1" -%}
+                        <span class="ct-icon ct-icon--boxed"><svg viewBox="0 0 24 24" width="16" height="16"
+                                fill="none">
+                                <path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span>
+                        {%- else -%}
+                        <span class="ct-icon ct-icon--cross">✕</span>
+                        {%- endif -%}
+                    </div>
+                </div>
+                {%- endfor -%}
+
+            </div>
+        </div>
         <section class="related"><small>اكتشف المزيد</small>
             <h2>منتجات قد تعجبك</h2>
             <div id="related"></div>
