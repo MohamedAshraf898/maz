@@ -102,19 +102,10 @@ header button {
 .accordions article>button {
     -webkit-appearance: none;
     appearance: none;
-    width: 100%;
-    margin: 0;
-    padding: 16px 0;
-    border: 0;
-    border-radius: 0;
+
     background: transparent;
     color: #111111 !important;
-    font: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.5;
-    text-align: right;
-    cursor: pointer;
+
     -webkit-text-fill-color: #111111;
 }
 
