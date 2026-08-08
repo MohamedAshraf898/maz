@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <header><a href="#" class="logo">MAZ<small>DECORATIONS</small></a>
+    <header><a href="#" class="logo"><img src="cafbdb8da64de627bdd4ab522c3b1283.avif" loading="lazy"
+                class="header__heading-logo" width="60" height="auto" alt="MAZ"></a>
     </header>
     <main>
         <section class="product">
@@ -37,24 +38,52 @@
                     اطلب عبر الواتساب
                 </a>
                 <div class="trust">
-                    <article><span>◉</span>
+                    <article><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <path
+                                d="M2.5 12C4.7 7.8 8 5.5 12 5.5C16 5.5 19.3 7.8 21.5 12C19.3 16.2 16 18.5 12 18.5C8 18.5 4.7 16.2 2.5 12Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"></circle>
+                            <path d="M8 3.5L9.2 5.5M16 3.5L14.8 5.5" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round"></path>
+                        </svg>
                         <div><b>تصميم قبل التنفيذ</b>
                             <p>شاهد المنتج في مساحتك قبل بدء التصنيع.</p>
                         </div>
                     </article>
-                    <article><span>3Y</span>
+                    <article><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <path d="M12 2.5L20 5.5V11.5C20 16.5 16.8 20.2 12 22C7.2 20.2 4 16.5 4 11.5V5.5L12 2.5Z"
+                                stroke="currentColor" stroke-width="1.5"></path>
+                            <text x="12" y="14.2" text-anchor="middle" fill="currentColor" font-size="7"
+                                font-weight="700" font-family="Arial, sans-serif">
+                                3Y
+                            </text>
+                        </svg>
                         <div><b>ضمان 3 سنوات</b>
                             <p>جودة تصنيع عالية تضمن لك منتجًا يدوم لسنوات.</p>
                         </div>
                     </article>
-                    <article><span>☼</span>
+                    <article><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                            style="flex-shrink: 0; margin-top: 2px;">
+                            <path
+                                d="M12 2V4M12 20V22M4.9 4.9L6.3 6.3M17.7 17.7L19.1 19.1M2 12H4M20 12H22M4.9 19.1L6.3 17.7M17.7 6.3L19.1 4.9"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"></circle>
+                            <path
+                                d="M18 13.5C18 13.5 15.8 16.2 15.8 17.8C15.8 19 16.8 20 18 20C19.2 20 20.2 19 20.2 17.8C20.2 16.2 18 13.5 18 13.5Z"
+                                fill="white" stroke="currentColor" stroke-width="1.3"></path>
+                        </svg>
                         <div><b>مقاوم لعوامل الطقس</b>
                             <p>مصنوع من الألومنيوم المقاوم للحرارة والرطوبة.</p>
                         </div>
                     </article>
                 </div>
-                <div class="payments"><span>Pay</span><span>G
-                        Pay</span><span>VISA</span><span>●●</span><span>Mastercard</span><span>AmEx</span></div>
+                <div class="payments"><img class="maz-payment-methods__image"
+                        src="https://maz-82927.myshopify.com/cdn/shop/files/xxx.avif?v=1785247478"
+                        alt="طرق الدفع المتاحة" width="1180" height="83" decoding="async"
+                        style="    max-width: 100%;object-fit: cover;height: auto;">
+                </div>
             </aside>
         </section>
         <section class="accordions">
@@ -575,16 +604,173 @@
                 </div>
             </article>
         </section>
-        <section class="features">
-            <article>↗<b>خفيفة الوزن</b></article>
-            <article>◇<b>مقاومة للرطوبة</b></article>
-            <article>✦<b>متينة وتدوم</b></article>
+        <style>
+            .maz-product-features {
+                direction: rtl;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                align-items: start;
+                justify-content: center;
+                width: 100%;
+                margin: 0;
+                padding: 70px 24px 75px;
+                background: #fbf6f0;
+                text-align: center;
+            }
+
+            .maz-product-features,
+            .maz-product-features *,
+            .maz-product-features *::before,
+            .maz-product-features *::after {
+                box-sizing: border-box;
+            }
+
+            .maz-product-features__item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 15px;
+                min-width: 0;
+                margin: 0;
+                padding: 0 10px;
+                border: 0;
+                background: transparent;
+                color: #111111;
+            }
+
+            .maz-product-features__icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 56px;
+                height: 56px;
+                border: 1.5px solid #dc5a2f;
+                border-radius: 50%;
+                color: #dc5a2f;
+                background: transparent;
+            }
+
+            .maz-product-features__icon svg {
+                display: block;
+                width: 28px;
+                height: 28px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.5;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .maz-product-features__title {
+                display: block;
+                margin: 0;
+                color: #111111;
+                font-family: inherit;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1.5;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-text-fill-color: #111111;
+            }
+
+            @media (max-width: 749px) {
+                .maz-product-features {
+                    padding: 55px 10px 60px;
+                }
+
+                .maz-product-features__item {
+                    gap: 13px;
+                    padding: 0 4px;
+                }
+
+                .maz-product-features__icon {
+                    width: 54px;
+                    height: 54px;
+                }
+
+                .maz-product-features__icon svg {
+                    width: 27px;
+                    height: 27px;
+                }
+
+                .maz-product-features__title {
+                    font-size: 13px;
+                }
+            }
+
+            @media (max-width: 370px) {
+                .maz-product-features {
+                    padding-right: 5px;
+                    padding-left: 5px;
+                }
+
+                .maz-product-features__icon {
+                    width: 48px;
+                    height: 48px;
+                }
+
+                .maz-product-features__icon svg {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .maz-product-features__title {
+                    font-size: 11px;
+                }
+            }
+        </style>
+
+        <section class="maz-product-features" dir="rtl" aria-label="مميزات المنتج">
+            <!-- Lightweight -->
+            <article class="maz-product-features__item">
+                <div class="maz-product-features__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+
+                        <line x1="16" y1="8" x2="2" y2="22"></line>
+
+                        <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                    </svg>
+                </div>
+
+                <b class="maz-product-features__title">
+                    خفيفة الوزن
+                </b>
+            </article>
+
+            <!-- Moisture resistant -->
+            <article class="maz-product-features__item">
+                <div class="maz-product-features__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                    </svg>
+                </div>
+
+                <b class="maz-product-features__title">
+                    مقاومة للرطوبة
+                </b>
+            </article>
+
+            <!-- Durable -->
+            <article class="maz-product-features__item">
+                <div class="maz-product-features__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+
+                <b class="maz-product-features__title">
+                    متينة وتدوم
+                </b>
+            </article>
         </section>
         <section class="description">
             <div>
                 <h2 style="text-align: center;">خامات مصممة لتدوم</h2>
 
-            </div><img id="lifestyle" alt="فازة الخرشوفة في غرفة معيشة" src="VASE_3_2.webp">
+            </div><img id="" alt="فازة الخرشوفة في غرفة معيشة" src="1.webp">
             <p>صُممت شجرة الخرشوفة وفازتها من الألومنيوم عالي الجودة، لتجمع بين سهولة النقل والتنظيف، والمتانة التي
                 تحافظ على مظهرها الأنيق مع الاستخدام اليومي</p>
         </section>
@@ -824,7 +1010,7 @@
             }
 
             .maz-comparison__title span {
-                color: #2f6f4e !important;
+                color: #C4592F !important;
             }
 
             .maz-comparison__subtitle {
@@ -1595,21 +1781,21 @@
             <div class="maz-reviews__container">
                 <div class="maz-reviews__intro">
                     <h2 id="maz-reviews-heading" class="maz-reviews__intro-text">
-                        شاهد ما يقوله عملاؤنا عن تجربتهم مع منتجات MAZ
+                        ثقة عملائنا تتحدث عنّا
                     </h2>
                 </div>
 
                 <div class="maz-reviews__summary">
                     <div class="maz-reviews__summary-stars" id="maz-summary-stars" role="img"
-                        aria-label="تقييم 4.7 من 5 نجوم"></div>
+                        aria-label="تقييم 5 من 5 نجوم"></div>
 
                     <div class="maz-reviews__summary-copy">
                         <p class="maz-reviews__summary-rating">
-                            تقييم <span id="maz-average-rating">4.7</span> من 5
+                            تقييم <span id="maz-average-rating">5</span> من 5
                         </p>
 
                         <p class="maz-reviews__summary-count">
-                            بناءً على <span id="maz-review-count">5,649</span> تقييمًا
+                            بناءً على <span id="maz-review-count">4</span> تقييمًا
                         </p>
                     </div>
                 </div>
@@ -1645,8 +1831,8 @@
                 "use strict";
 
                 const reviewsSettings = {
-                    averageRating: 4.7,
-                    totalReviews: "5,649",
+                    averageRating: 5,
+                    totalReviews: "4",
 
                     /* Change to false to disable autoplay */
                     autoplay: true,
@@ -1657,48 +1843,44 @@
 
                 const reviews = [
                     {
-                        name: "سارة أحمد",
-                        location: "دبي، الإمارات",
+                        name: "فاطمة",
+                        location: "ابو ظبي",
                         rating: 5,
-                        title: "قطعة مذهلة بكل التفاصيل",
+                        title: "مذهلة بكل التفاصيل",
                         text:
-                            "تجاوزت هذه الفازة كل توقعاتي. جودة التصنيع ممتازة والتفاصيل أجمل بكثير على الطبيعة. أصبحت القطعة الأساسية في غرفة المعيشة.",
-                        date: "15 يوليو 2026",
-                        verifiedLabel: "أوصي بهذا المنتج",
-                        avatar: ""
+                            "طلبت اللون الحجري للمدخل الخارجي، وبعد التركيب تغيّر شكل المدخل بالكامل. التصميم مختلف والخامة قوية، والقطعة على الطبيعة أفخم من الصور",
+                        verifiedLabel: "أنصح بهذا المنتج",
+                        avatar: "8 (4).png"
                     },
                     {
-                        name: "محمد خالد",
-                        location: "الرياض، السعودية",
+                        name: "محمد",
+                        location: "الشارقة",
                         rating: 5,
-                        title: "مثالية لمنزلي",
+                        title: "أضافت لمسة فخمة للمكان",
                         text:
-                            "الجودة رائعة والتصميم عصري وخالد في الوقت نفسه. حصلت على الكثير من الإطراءات من الضيوف، والمنتج يستحق سعره.",
-                        date: "10 يوليو 2026",
-                        verifiedLabel: "أوصي بهذا المنتج",
-                        avatar: ""
+                            "اللون الخشبي أضاف لمسة طبيعية ودافئة للمكان، وفي نفس الوقت التصميم عصري ومختلف عن الفازات المعتادة الموجودة في السوق",
+                        verifiedLabel: "أنصح بهذا المنتج",
+                        avatar: "2 (5).png"
                     },
                     {
-                        name: "نور علي",
-                        location: "أبوظبي، الإمارات",
+                        name: "مريم",
+                        location: "أبوظبي",
                         rating: 5,
-                        title: "فخامة في أجمل صورها",
+                        title: "أجمل بكثير على الطبيعة",
                         text:
-                            "أحببت هذه القطعة كثيرًا. الاهتمام بالتفاصيل واضح، كما أنها أضافت لمسة راقية وهادئة إلى المساحة.",
-                        date: "5 يوليو 2026",
-                        verifiedLabel: "أوصي بهذا المنتج",
-                        avatar: ""
+                            "أعجبتني أن الشجرة والفازة منفصلين عن بعض، فصار تحريكها وتنظيفها أسهل بكثير. التصميم مميز والتشطيب واضح أنه مصنوع بعناية.",
+                        verifiedLabel: "أنصح بهذا المنتج",
+                        avatar: "7 (4).png"
                     },
                     {
-                        name: "يوسف محمود",
-                        location: "جدة، السعودية",
+                        name: "أحمد",
+                        location: "ابوظبي",
                         rating: 5,
-                        title: "جودة استثنائية",
+                        title: "جودة وأناقة في كل تفصيلة",
                         text:
-                            "الحرفية في التصنيع استثنائية فعلًا. إنها قطعة مميزة ترفع من جمال أي غرفة، وسأشتري من MAZ مرة أخرى.",
-                        date: "28 يونيو 2026",
-                        verifiedLabel: "أوصي بهذا المنتج",
-                        avatar: ""
+                            "كان عندي ركن فارغ وأحتاج لونًا يتناسق مع الديكور، والبيج كان الاختيار المناسب. أعطى المكان روحًا من غير ما يكون شكله مزدحم",
+                        verifiedLabel: "أنصح بهذا المنتج",
+                        avatar: "1 (7).png"
                     }
                 ];
 
@@ -3640,8 +3822,9 @@
                 <div class="maz-footer__bottom">
                     <div class="maz-footer__socials" aria-label="حسابات التواصل الاجتماعي">
                         <!-- TikTok -->
-                        <a class="maz-footer__social-link" href="#" target="_blank" rel="noopener noreferrer"
-                            aria-label="TikTok">
+                        <a class="maz-footer__social-link"
+                            href="https://www.tiktok.com/@mazdecorations?_r=1&_t=ZS-98PbFhmK7FI" target="_blank"
+                            rel="noopener noreferrer" aria-label="TikTok">
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M15.7 3c.2 1.7 1.2 3.1 2.7 4
                  .8.5 1.7.8 2.6.8v3.4
@@ -3652,8 +3835,8 @@
                         </a>
 
                         <!-- Instagram -->
-                        <a class="maz-footer__social-link" href="#" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram">
+                        <a class="maz-footer__social-link" href="https://www.instagram.com/mazdecorations/?hl=en"
+                            target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"
                                     stroke-width="2.2"></rect>

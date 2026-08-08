@@ -28,7 +28,7 @@ header {
     height: 44px;
     border-bottom: 1px solid #ddd;
     display: grid;
-    grid-template-columns: 45px 45px 1fr 45px;
+    grid-template-columns: 25px 45px 1fr 45px;
     align-items: center;
     padding: 0 22px;
     direction: ltr
@@ -229,6 +229,9 @@ header button {
 }
 
 .qty>* {
+    -webkit-appearance: none;
+    appearance: none;
+    color: #000 !important;
     min-width: 0;
     border: 0;
     background: #fff;
