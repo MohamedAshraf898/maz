@@ -32,7 +32,10 @@
                 <div class="offers"><label class="active"><input type="radio" name="offer" value="1"
                             checked><i></i><b>قطعه واحده</b><span>AED 1,800.00</span></label><label><input type="radio"
                             name="offer" value="2"><i></i><b>قطعتان</b><em>وفر AED 300</em><span>AED 3,300.00<s>AED
-                                3,600.00</s></span></label></div><button id="buy" class="buy">اشتري الآن</button>
+                                3,600.00</s></span></label></div><a id="buy" class="buy whatsapp-order"
+                    href="https://wa.me/971509666763?text=" target="_blank" rel="noopener noreferrer">
+                    اطلب عبر الواتساب
+                </a>
                 <div class="trust">
                     <article><span>◉</span>
                         <div><b>تصميم قبل التنفيذ</b>
@@ -3700,9 +3703,26 @@
         </script>
         <!-- END MAZ FOOTER -->
     </main>
-
+    <style>
+        a.buy,
+        .sticky a.buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 48px;
+            border: 0;
+            border-radius: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
     <div class="sticky">
-        <div><b>فازة الخرشوفه</b><span>AED 1,800.00</span></div><button>أضف إلى السلة</button>
+        <div><b>فازة الخرشوفه</b><span>AED 1,800.00</span></div><a class="buy whatsapp-order"
+            href="https://wa.me/971509666763?text=" target="_blank" rel="noopener noreferrer">
+            اطلب عبر الواتساب
+        </a>
     </div>
     <dialog id="cart"><button id="cart-close">×</button>
         <h2>سلة التسوق</h2>
