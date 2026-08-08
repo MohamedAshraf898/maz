@@ -100,10 +100,12 @@ header button {
 }
 
 .stage #prev {
+    color: #000 !important;
     right: 8px
 }
 
 .stage #next {
+    color: #000 !important;
     left: 8px
 }
 
@@ -366,6 +368,7 @@ header button {
 }
 
 .accordions button {
+    color: #000 !important;
     width: 100%;
     height: 52px;
     border: 0;
