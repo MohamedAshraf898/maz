@@ -330,7 +330,33 @@ function renderRelatedProducts() {
         .join("");
 }
 
+function renderComparisonRows() {
+    const container = $("#comparison-rows");
+    if (!container) return;
+
+    const rowsData = "تصميم خالد|1|0|0,جودة تدوم|1|0|0,دقة في التصميم|1|0|0,ألومنيوم فاخر|1|0|0,تفاصيل راقية|1|0|0,فخامة هادئة|1|0|0,تصميم ذكي|1|0|0,أناقة عصرية|1|0|0,صناعة متقنة|1|0|0".split(",");
+
+    container.innerHTML = rowsData.map(row => {
+        const parts = row.split("|");
+        const getIcon = (val) => val === "1" 
+            ? '<span class="ct-icon ct-icon--boxed"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'
+            : '<span class="ct-icon ct-icon--cross">✕</span>';
+
+        return `
+            <div class="ct-row">
+                <div class="ct-cell ct-cell--label">
+                    <span class="ct-label-pill">${parts[0]}</span>
+                </div>
+                <div class="ct-cell">${getIcon(parts[1])}</div>
+                <div class="ct-cell">${getIcon(parts[2])}</div>
+                <div class="ct-cell">${getIcon(parts[3])}</div>
+            </div>
+        `;
+    }).join("");
+}
+
 function initializePage() {
+    renderComparisonRows();
     renderVariants();
     renderGallery();
     renderCart();
