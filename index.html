@@ -270,34 +270,395 @@
             }
         </style>
 
-        <div class="ct-wrap">
-            <div class="ct-header">
-                <h2 class="ct-title">لماذا <span>MAZ</span> هو الخيار الأمثل.</h2>
-                <p class="ct-subtitle">الجودة التي تدوم، بدون تنازلات.</p>
+        <!-- MAZ comparison table -->
+        <style>
+            .maz-comparison {
+                direction: rtl;
+                display: block;
+                width: min(900px, calc(100% - 32px));
+                margin: 50px auto;
+                padding: 0;
+                font-family: inherit;
+                text-align: center;
+            }
+
+            .maz-comparison,
+            .maz-comparison *,
+            .maz-comparison *::before,
+            .maz-comparison *::after {
+                box-sizing: border-box;
+            }
+
+            /* Heading above the table */
+            .maz-comparison__intro {
+                position: static !important;
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 0 32px !important;
+                padding: 0 !important;
+                border: 0 !important;
+                background: transparent !important;
+                text-align: center !important;
+                transform: none !important;
+            }
+
+            .maz-comparison__title {
+                position: static !important;
+                display: block !important;
+                width: 100% !important;
+                margin: 0 0 8px !important;
+                padding: 0 !important;
+                color: #111827 !important;
+                font-size: 28px !important;
+                font-weight: 700 !important;
+                line-height: 1.4 !important;
+                text-align: center !important;
+                white-space: normal !important;
+                transform: none !important;
+            }
+
+            .maz-comparison__title span {
+                color: #2f6f4e !important;
+            }
+
+            .maz-comparison__subtitle {
+                position: static !important;
+                display: block !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                color: #6b7280 !important;
+                font-size: 15px !important;
+                font-weight: 400 !important;
+                line-height: 1.6 !important;
+                text-align: center !important;
+                transform: none !important;
+            }
+
+            /* Table */
+            .maz-comparison__table {
+                display: block;
+                width: 100%;
+            }
+
+            .maz-comparison__row {
+                display: grid;
+                grid-template-columns:
+                    minmax(130px, 1.6fr) repeat(3, minmax(75px, 1fr));
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                margin: 0 0 10px;
+            }
+
+            .maz-comparison__row--header {
+                margin-bottom: 16px;
+            }
+
+            .maz-comparison__cell {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 0;
+            }
+
+            .maz-comparison__cell--label {
+                justify-content: flex-end;
+            }
+
+            .maz-comparison__heading {
+                color: #111827;
+                font-size: 13px;
+                font-weight: 700;
+                line-height: 1.4;
+                text-align: center;
+            }
+
+            .maz-comparison__label {
+                display: block;
+                width: 100%;
+                padding: 12px 18px;
+                overflow: hidden;
+                border-radius: 999px;
+                background: #f3f4f6;
+                color: #374151;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.4;
+                text-align: right;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .maz-comparison__brand {
+                display: block;
+                width: 100%;
+                padding: 10px 6px;
+                border-radius: 999px;
+                background: linear-gradient(90deg, #2f6f4e, #1e4b33);
+                color: #ffffff;
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+                line-height: 1.4;
+                text-align: center;
+            }
+
+            /* Icons */
+            .maz-comparison__icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 0 auto;
+            }
+
+            .maz-comparison__icon--check {
+                width: 26px;
+                height: 26px;
+                border-radius: 6px;
+                background: #2f6f4e;
+            }
+
+            .maz-comparison__icon--cross {
+                color: #ef4444;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1;
+            }
+
+            /* Tablet and mobile */
+            @media (max-width: 768px) {
+                .maz-comparison {
+                    width: min(100% - 20px, 900px);
+                    margin: 32px auto;
+                }
+
+                .maz-comparison__intro {
+                    margin-bottom: 24px !important;
+                }
+
+                .maz-comparison__title {
+                    font-size: 22px !important;
+                }
+
+                .maz-comparison__subtitle {
+                    font-size: 14px !important;
+                }
+
+                .maz-comparison__row {
+                    grid-template-columns:
+                        minmax(105px, 1.4fr) repeat(3, minmax(55px, 0.9fr));
+                    gap: 6px;
+                }
+
+                .maz-comparison__label {
+                    padding: 10px;
+                    font-size: 12px;
+                }
+
+                .maz-comparison__heading,
+                .maz-comparison__brand {
+                    font-size: 11px;
+                }
+
+                .maz-comparison__icon--check {
+                    width: 22px;
+                    height: 22px;
+                }
+
+                .maz-comparison__icon--check svg {
+                    width: 13px;
+                    height: 13px;
+                }
+
+                .maz-comparison__icon--cross {
+                    font-size: 16px;
+                }
+            }
+
+            /* Small phones */
+            @media (max-width: 380px) {
+                .maz-comparison {
+                    width: calc(100% - 12px);
+                }
+
+                .maz-comparison__title {
+                    font-size: 19px !important;
+                }
+
+                .maz-comparison__subtitle {
+                    font-size: 12px !important;
+                }
+
+                .maz-comparison__row {
+                    grid-template-columns:
+                        minmax(90px, 1.3fr) repeat(3, minmax(48px, 0.85fr));
+                    gap: 4px;
+                }
+
+                .maz-comparison__label {
+                    padding: 8px 6px;
+                    font-size: 10.5px;
+                }
+
+                .maz-comparison__heading,
+                .maz-comparison__brand {
+                    font-size: 9.5px;
+                }
+
+                .maz-comparison__icon--check {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                .maz-comparison__icon--check svg {
+                    width: 11px;
+                    height: 11px;
+                }
+
+                .maz-comparison__icon--cross {
+                    font-size: 14px;
+                }
+            }
+        </style>
+
+        <section class="maz-comparison" dir="rtl" aria-labelledby="maz-comparison-title">
+            <!-- Centered title -->
+            <div class="maz-comparison__intro">
+                <h2 class="maz-comparison__title" id="maz-comparison-title">
+                    لماذا <span>MAZ</span> هو الخيار الأمثل.
+                </h2>
+
+                <p class="maz-comparison__subtitle">
+                    الجودة التي تدوم، بدون تنازلات.
+                </p>
             </div>
 
-            <div class="ct-table">
+            <!-- Comparison table -->
+            <div class="maz-comparison__table" role="table" aria-label="مقارنة منتجات MAZ">
+                <div class="maz-comparison__row maz-comparison__row--header" role="row">
+                    <div class="maz-comparison__cell maz-comparison__cell--label" role="columnheader"
+                        aria-label="الميزة"></div>
 
-                <div class="ct-row ct-row--header">
-                    <div class="ct-cell ct-cell--label"></div>
-
-                    <div class="ct-cell ct-header-shift">
-                        <span class="ct-hero-pill">MAZ</span>
+                    <div class="maz-comparison__cell" role="columnheader">
+                        <span class="maz-comparison__brand">MAZ</span>
                     </div>
 
-                    <div class="ct-cell ct-cell--head ct-header-shift">
+                    <div class="maz-comparison__cell maz-comparison__heading" role="columnheader">
                         تقليد سعودي
                     </div>
 
-                    <div class="ct-cell ct-cell--head ct-header-shift">
+                    <div class="maz-comparison__cell maz-comparison__heading" role="columnheader">
                         مستورد
                     </div>
                 </div>
 
-                <div id="comparison-rows"></div>
-
+                <div id="maz-comparison-rows"></div>
             </div>
-        </div>
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const comparisonRows = [
+                    ["تصميم خالد", true, false, false],
+                    ["جودة تدوم", true, false, false],
+                    ["دقة في التصميم", true, false, false],
+                    ["ألومنيوم فاخر", true, false, false],
+                    ["تفاصيل راقية", true, false, false],
+                    ["فخامة هادئة", true, false, false],
+                    ["تصميم ذكي", true, false, false],
+                    ["أناقة عصرية", true, false, false],
+                    ["صناعة متقنة", true, false, false]
+                ];
+
+                const comparisonContainer = document.getElementById(
+                    "maz-comparison-rows"
+                );
+
+                if (!comparisonContainer) {
+                    return;
+                }
+
+                function renderComparisonIcon(isAvailable) {
+                    if (isAvailable) {
+                        return `
+          <span
+            class="maz-comparison__icon maz-comparison__icon--check"
+            role="img"
+            aria-label="متوفر"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 13l4 4L19 7"
+                stroke="#ffffff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </span>
+        `;
+                    }
+
+                    return `
+        <span
+          class="maz-comparison__icon maz-comparison__icon--cross"
+          role="img"
+          aria-label="غير متوفر"
+        >
+          &#10005;
+        </span>
+      `;
+                }
+
+                comparisonContainer.innerHTML = comparisonRows
+                    .map(function (row) {
+                        return `
+          <div class="maz-comparison__row" role="row">
+            <div
+              class="maz-comparison__cell maz-comparison__cell--label"
+              role="rowheader"
+            >
+              <span class="maz-comparison__label">
+                ${row[0]}
+              </span>
+            </div>
+
+            <div
+              class="maz-comparison__cell"
+              role="cell"
+            >
+              ${renderComparisonIcon(row[1])}
+            </div>
+
+            <div
+              class="maz-comparison__cell"
+              role="cell"
+            >
+              ${renderComparisonIcon(row[2])}
+            </div>
+
+            <div
+              class="maz-comparison__cell"
+              role="cell"
+            >
+              ${renderComparisonIcon(row[3])}
+            </div>
+          </div>
+        `;
+                    })
+                    .join("");
+            });
+        </script>
+        <!-- End MAZ comparison table -->
         <section class="related"><small>اكتشف المزيد</small>
             <h2>منتجات قد تعجبك</h2>
             <div id="related"></div>
