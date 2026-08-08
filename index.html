@@ -10,9 +10,8 @@
 </head>
 
 <body>
-    <header><button id="cart-open" aria-label="السلة">♧ <b id="cart-count">0</b></button><button
-            aria-label="البحث">⌕</button><a href="#" class="logo">MAZ<small>DECORATIONS</small></a><button
-            aria-label="البحث">⌕</button></header>
+    <header><a href="#" class="logo">MAZ<small>DECORATIONS</small></a>
+    </header>
     <main>
         <section class="product">
             <div class="gallery">
@@ -58,8 +57,508 @@
         <section class="accordions">
             <article><button>الوصف<i></i></button>
                 <div hidden>
-                    <p>شجرة الخرشوفة وفازتها قطعة ديكور معمارية مصنوعة من الألومنيوم عالي الجودة، تمنح المداخل والمجالس
-                        حضورًا راقيًا.</p>
+                    <style>
+                        .maz-product-details {
+                            --mpd-border: #e8ded3;
+                            --mpd-background: #fffdfb;
+                            --mpd-box: #fbf9f6;
+                            --mpd-heading: #111111;
+                            --mpd-text: #333333;
+                            --mpd-muted: #867d74;
+                            --mpd-accent: #80664c;
+
+                            direction: rtl;
+                            width: 100%;
+                            max-width: 1025px;
+                            margin: 0 auto;
+                            padding: 20px;
+                            border: 1px solid var(--mpd-border);
+                            border-radius: 22px;
+                            background: var(--mpd-background);
+                            color: var(--mpd-text);
+                            font-family: inherit;
+                        }
+
+                        .maz-product-details,
+                        .maz-product-details *,
+                        .maz-product-details *::before,
+                        .maz-product-details *::after {
+                            box-sizing: border-box;
+                        }
+
+                        .maz-product-details__intro {
+                            margin: 0 0 10px;
+                            padding: 0 14px 0 0;
+                            border-right: 3px solid var(--mpd-accent);
+                            color: #222222;
+                            font-size: 17px;
+                            font-weight: 400;
+                            line-height: 1.9;
+                            text-align: right;
+                        }
+
+                        /* Height panel */
+                        .maz-product-details__height {
+                            display: grid;
+                            grid-template-columns: 1fr 78px;
+                            min-height: 100px;
+                            margin-bottom: 30px;
+                            border: 1px solid var(--mpd-border);
+                            background: var(--mpd-box);
+                        }
+
+                        .maz-product-details__height-content {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            padding: 18px 28px;
+                        }
+
+                        .maz-product-details__height-heading {
+                            display: flex;
+                            align-items: baseline;
+                            justify-content: flex-start;
+                            gap: 7px;
+                            margin-bottom: 6px;
+                        }
+
+                        .maz-product-details__height-number {
+                            color: #111111;
+                            font-size: 32px;
+                            font-weight: 800;
+                            line-height: 1;
+                        }
+
+                        .maz-product-details__height-unit {
+                            color: var(--mpd-accent);
+                            font-size: 13px;
+                        }
+
+                        .maz-product-details__height-description {
+                            margin: 0;
+                            color: var(--mpd-muted);
+                            font-size: 12px;
+                            line-height: 1.7;
+                        }
+
+                        .maz-product-details__scale {
+                            display: grid;
+                            grid-template-rows: repeat(4, 1fr);
+                            border-right: 1px solid #a99e93;
+                        }
+
+                        .maz-product-details__scale-value {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-bottom: 1px solid #a99e93;
+                            color: #84796e;
+                            font-size: 9px;
+                        }
+
+                        .maz-product-details__scale-value:last-child {
+                            border-bottom: 0;
+                        }
+
+                        /* Features */
+                        .maz-product-details__features {
+                            margin: 0;
+                            padding: 0 25px;
+                            list-style: none;
+                        }
+
+                        .maz-product-details__feature {
+                            padding: 14px 0 15px;
+                            border-top: 1px solid var(--mpd-border);
+                            text-align: right;
+                        }
+
+                        .maz-product-details__feature:last-child {
+                            border-bottom: 1px solid var(--mpd-border);
+                        }
+
+                        .maz-product-details__feature-title {
+                            margin: 0 0 5px;
+                            color: var(--mpd-heading);
+                            font-size: 14px;
+                            font-weight: 700;
+                            line-height: 1.5;
+                        }
+
+                        .maz-product-details__feature-text {
+                            margin: 0;
+                            color: var(--mpd-muted);
+                            font-size: 12px;
+                            line-height: 1.7;
+                        }
+
+                        /* Colors */
+                        .maz-product-details__colors {
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 22px;
+                            margin: 30px 0 20px;
+                            padding: 0 25px;
+                        }
+
+                        .maz-product-details__color {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 9px;
+                            color: #514a43;
+                            font-size: 12px;
+                        }
+
+                        .maz-product-details__swatch {
+                            display: inline-block;
+                            width: 28px;
+                            height: 28px;
+                            border: 1px solid rgba(0, 0, 0, 0.12);
+                            border-radius: 50%;
+                        }
+
+                        .maz-product-details__swatch--beige {
+                            background: #c9b494;
+                        }
+
+                        .maz-product-details__swatch--wood {
+                            background: #73583f;
+                        }
+
+                        .maz-product-details__swatch--stone {
+                            background: #918e88;
+                        }
+
+                        /* Specifications */
+                        .maz-product-details__specifications {
+                            margin: 24px 25px 0;
+                            padding-top: 20px;
+                            border-top: 1px solid var(--mpd-border);
+                        }
+
+                        .maz-product-details__section-title {
+                            margin: 0 0 15px;
+                            color: var(--mpd-heading);
+                            font-size: 17px;
+                            font-weight: 700;
+                            text-align: right;
+                        }
+
+                        .maz-product-details__table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            color: var(--mpd-text);
+                            font-size: 13px;
+                        }
+
+                        .maz-product-details__table th,
+                        .maz-product-details__table td {
+                            padding: 11px 12px;
+                            border-bottom: 1px solid var(--mpd-border);
+                            text-align: right;
+                            vertical-align: top;
+                        }
+
+                        .maz-product-details__table th {
+                            width: 34%;
+                            color: var(--mpd-heading);
+                            font-weight: 700;
+                        }
+
+                        .maz-product-details__table td {
+                            color: var(--mpd-muted);
+                        }
+
+                        /* Service information */
+                        .maz-product-details__services {
+                            margin: 24px 25px 5px;
+                            padding-top: 5px;
+                        }
+
+                        .maz-product-details__service {
+                            display: grid;
+                            grid-template-columns: 100px 1fr;
+                            gap: 14px;
+                            padding: 13px 0;
+                            border-top: 1px solid var(--mpd-border);
+                        }
+
+                        .maz-product-details__service-name {
+                            color: var(--mpd-heading);
+                            font-size: 13px;
+                            font-weight: 700;
+                        }
+
+                        .maz-product-details__service-text {
+                            margin: 0;
+                            color: var(--mpd-muted);
+                            font-size: 12px;
+                            line-height: 1.7;
+                        }
+
+                        @media (max-width: 749px) {
+                            .maz-product-details {
+                                padding: 12px 10px;
+                                border-radius: 13px;
+                            }
+
+                            .maz-product-details__intro {
+                                font-size: 13px;
+                                line-height: 1.8;
+                            }
+
+                            .maz-product-details__height {
+                                grid-template-columns: 1fr 60px;
+                            }
+
+                            .maz-product-details__height-content {
+                                padding: 14px;
+                            }
+
+                            .maz-product-details__height-number {
+                                font-size: 28px;
+                            }
+
+                            .maz-product-details__height-description {
+                                font-size: 10.5px;
+                            }
+
+                            .maz-product-details__features {
+                                padding: 0 12px;
+                            }
+
+                            .maz-product-details__feature-title {
+                                font-size: 12px;
+                            }
+
+                            .maz-product-details__feature-text {
+                                font-size: 10.5px;
+                            }
+
+                            .maz-product-details__colors,
+                            .maz-product-details__specifications,
+                            .maz-product-details__services {
+                                margin-right: 12px;
+                                margin-left: 12px;
+                                padding-right: 0;
+                                padding-left: 0;
+                            }
+
+                            .maz-product-details__table {
+                                font-size: 11px;
+                            }
+
+                            .maz-product-details__table th,
+                            .maz-product-details__table td {
+                                padding: 9px 6px;
+                            }
+
+                            .maz-product-details__service {
+                                grid-template-columns: 75px 1fr;
+                                gap: 8px;
+                            }
+
+                            .maz-product-details__service-name {
+                                font-size: 11px;
+                            }
+
+                            .maz-product-details__service-text {
+                                font-size: 10.5px;
+                            }
+                        }
+                    </style>
+
+                    <div class="maz-product-details" dir="rtl">
+                        <p class="maz-product-details__intro">
+                            شجرة الخرشوفة وفازتها قطعة واحدة بحضور معماري، مصنوعة من
+                            الألومنيوم عالي الجودة بتصميم حصري من MAZ — تملأ الفراغ في
+                            المداخل والمجالس دون أن تزدحم المساحة.
+                        </p>
+
+                        <div class="maz-product-details__height">
+                            <div class="maz-product-details__height-content">
+                                <div class="maz-product-details__height-heading">
+                                    <strong class="maz-product-details__height-number">
+                                        ٢.٤
+                                    </strong>
+
+                                    <span class="maz-product-details__height-unit">
+                                        متر ارتفاعًا
+                                    </span>
+                                </div>
+
+                                <p class="maz-product-details__height-description">
+                                    الارتفاع المناسب لمداخل الفلل والمجالس وردهات الفنادق —
+                                    عالٍ بما يكفي ليصنع نقطة نظر، ومتوازن بما يكفي ليبقى جزءًا
+                                    من المكان لا فوقه.
+                                </p>
+                            </div>
+
+                            <div class="maz-product-details__scale" aria-label="مقياس ارتفاع المنتج">
+                                <span class="maz-product-details__scale-value">٢.٤ م</span>
+                                <span class="maz-product-details__scale-value">١.٦ م</span>
+                                <span class="maz-product-details__scale-value">٠.٨ م</span>
+                                <span class="maz-product-details__scale-value">٠</span>
+                            </div>
+                        </div>
+
+                        <ul class="maz-product-details__features">
+                            <li class="maz-product-details__feature">
+                                <h3 class="maz-product-details__feature-title">
+                                    ألومنيوم فاخر مقاوم للحرارة والرطوبة
+                                </h3>
+
+                                <p class="maz-product-details__feature-text">
+                                    خامة مختارة لتتحمل أجواء الإمارات، ومناسبة للاستخدام
+                                    الداخلي والخارجي دون أن يتأثر التشطيب.
+                                </p>
+                            </li>
+
+                            <li class="maz-product-details__feature">
+                                <h3 class="maz-product-details__feature-title">
+                                    جذع خشبي طبيعي محنط
+                                </h3>
+
+                                <p class="maz-product-details__feature-text">
+                                    يمنح الشجرة مظهرًا واقعيًا وفاخرًا، ويحافظ على هيئته
+                                    لسنوات دون عناية خاصة.
+                                </p>
+                            </li>
+
+                            <li class="maz-product-details__feature">
+                                <h3 class="maz-product-details__feature-title">
+                                    تصميم هندسي حصري من MAZ
+                                </h3>
+
+                                <p class="maz-product-details__feature-text">
+                                    فازة بخطوط معمارية حديثة لا تتكرر في السوق، تجمع بين
+                                    الفخامة والبساطة.
+                                </p>
+                            </li>
+
+                            <li class="maz-product-details__feature">
+                                <h3 class="maz-product-details__feature-title">
+                                    قطعتان منفصلتان — الشجرة والفازة
+                                </h3>
+
+                                <p class="maz-product-details__feature-text">
+                                    تفصيل يجعل النقل وإعادة الترتيب والتنظيف أسهل بكثير من
+                                    قطع الديكور المدمجة الثقيلة.
+                                </p>
+                            </li>
+
+                            <li class="maz-product-details__feature">
+                                <h3 class="maz-product-details__feature-title">
+                                    خفيفة الوزن وسهلة العناية
+                                </h3>
+
+                                <p class="maz-product-details__feature-text">
+                                    تُنظّف بمسحة قماش رطبة، ويمكن إعادة تشطيبها أو إصلاحها
+                                    عند الحاجة.
+                                </p>
+                            </li>
+                        </ul>
+
+                        <div class="maz-product-details__colors" aria-label="الألوان المتاحة">
+                            <span class="maz-product-details__color">
+                                <i class="maz-product-details__swatch maz-product-details__swatch--beige"
+                                    aria-hidden="true"></i>
+                                البيج
+                            </span>
+
+                            <span class="maz-product-details__color">
+                                <i class="maz-product-details__swatch maz-product-details__swatch--wood"
+                                    aria-hidden="true"></i>
+                                الخشبي
+                            </span>
+
+                            <span class="maz-product-details__color">
+                                <i class="maz-product-details__swatch maz-product-details__swatch--stone"
+                                    aria-hidden="true"></i>
+                                الحجري
+                            </span>
+                        </div>
+
+                        <section class="maz-product-details__specifications">
+                            <h2 class="maz-product-details__section-title">
+                                المواصفات
+                            </h2>
+
+                            <table class="maz-product-details__table">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">الارتفاع الكلي</th>
+                                        <td>٢.٤ متر</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">خامة الفازة</th>
+                                        <td>ألومنيوم عالي الجودة</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">خامة الجذع</th>
+                                        <td>خشب طبيعي محنط</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">الشجرة</th>
+                                        <td>شجرة أريكا صناعية</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">التشطيب</th>
+                                        <td>ألومنيوم يحاكي الخشب الطبيعي</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">الاستخدام</th>
+                                        <td>داخلي وخارجي</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">الألوان المتاحة</th>
+                                        <td>البيج · الخشبي · الحجري</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <div class="maz-product-details__services">
+                            <div class="maz-product-details__service">
+                                <strong class="maz-product-details__service-name">
+                                    التوصيل
+                                </strong>
+
+                                <p class="maz-product-details__service-text">
+                                    من يومين إلى ٩ أيام داخل الإمارات
+                                </p>
+                            </div>
+
+                            <div class="maz-product-details__service">
+                                <strong class="maz-product-details__service-name">
+                                    الاسترجاع
+                                </strong>
+
+                                <p class="maz-product-details__service-text">
+                                    خلال ٣٠ يومًا من الشراء — الرسوم والضرائب غير قابلة
+                                    للاسترداد
+                                </p>
+                            </div>
+
+                            <div class="maz-product-details__service">
+                                <strong class="maz-product-details__service-name">
+                                    الضمان
+                                </strong>
+
+                                <p class="maz-product-details__service-text">
+                                    ٣ سنوات على جودة التصنيع
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
             <article><button>الخامات<i></i></button>
@@ -79,10 +578,12 @@
             <article>✦<b>متينة وتدوم</b></article>
         </section>
         <section class="description">
-            <div><small>خامات مصممة لتدوم</small>
-                <h2>أناقة معمارية تناسب كل مساحة</h2>
-                <p>صُممت شجرة الخرشوفة وفازتها من الألومنيوم عالي الجودة لتجمع بين سهولة النقل والتنظيف والمتانة.</p>
-            </div><img id="lifestyle" alt="فازة الخرشوفة في غرفة معيشة">
+            <div>
+                <h2 style="text-align: center;">خامات مصممة لتدوم</h2>
+
+            </div><img id="lifestyle" alt="فازة الخرشوفة في غرفة معيشة" src="VASE_3_2.webp">
+            <p>صُممت شجرة الخرشوفة وفازتها من الألومنيوم عالي الجودة، لتجمع بين سهولة النقل والتنظيف، والمتانة التي
+                تحافظ على مظهرها الأنيق مع الاستخدام اليومي</p>
         </section>
         <style>
             .ct-wrap {
@@ -659,15 +1160,2547 @@
             });
         </script>
         <!-- End MAZ comparison table -->
-        <section class="related"><small>اكتشف المزيد</small>
-            <h2>منتجات قد تعجبك</h2>
-            <div id="related"></div>
+        <!-- MAZ CUSTOMER REVIEWS -->
+        <style>
+            .maz-reviews {
+                --mr-background: #ffffff;
+                --mr-summary-background: #f5f5f5;
+                --mr-card-background: #ffffff;
+                --mr-card-border: #e0e0e0;
+                --mr-text: #111827;
+                --mr-muted: #6b7280;
+                --mr-stars: #d6a84b;
+                --mr-verified: #2f6f4e;
+                --mr-gap: 20px;
+                --mr-radius: 8px;
+
+                direction: rtl;
+                width: 100%;
+                padding: 60px 20px;
+                overflow: hidden;
+                background: var(--mr-background);
+                color: var(--mr-text);
+                font-family: inherit;
+            }
+
+            .maz-reviews,
+            .maz-reviews *,
+            .maz-reviews *::before,
+            .maz-reviews *::after {
+                box-sizing: border-box;
+            }
+
+            .maz-reviews__container {
+                width: 100%;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            .maz-reviews__intro {
+                display: block;
+                max-width: 800px;
+                margin: 0 auto 30px;
+                text-align: center;
+            }
+
+            .maz-reviews__intro-text {
+                margin: 0;
+                color: var(--mr-text);
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            /* Rating summary */
+            .maz-reviews__summary {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 16px;
+                width: 100%;
+                margin-bottom: 40px;
+                padding: 20px;
+                border-radius: var(--mr-radius);
+                background: var(--mr-summary-background);
+                text-align: center;
+            }
+
+            .maz-reviews__summary-stars,
+            .maz-reviews__card-stars {
+                direction: ltr;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                color: var(--mr-stars);
+            }
+
+            .maz-reviews__summary-star {
+                position: relative;
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
+
+            .maz-reviews__summary-star svg,
+            .maz-reviews__card-star svg {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .maz-reviews__summary-star--empty,
+            .maz-reviews__card-star--empty {
+                color: #d1d5db;
+            }
+
+            .maz-reviews__summary-star-fill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: var(--fill, 0%);
+                height: 100%;
+                overflow: hidden;
+                color: var(--mr-stars);
+            }
+
+            .maz-reviews__summary-star-fill svg {
+                width: 24px;
+                max-width: none;
+            }
+
+            .maz-reviews__summary-copy {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                text-align: right;
+            }
+
+            .maz-reviews__summary-rating {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            .maz-reviews__summary-count {
+                margin: 0;
+                color: var(--mr-muted);
+                font-size: 14px;
+            }
+
+            /* Slider */
+            .maz-reviews__viewport {
+                position: relative;
+                width: 100%;
+            }
+
+            .maz-reviews__slider {
+                direction: rtl;
+                display: flex;
+                gap: var(--mr-gap);
+                width: 100%;
+                padding: 2px 2px 14px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-behavior: smooth;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                cursor: grab;
+            }
+
+            .maz-reviews__slider::-webkit-scrollbar {
+                display: none;
+            }
+
+            .maz-reviews__slider.is-dragging {
+                scroll-behavior: auto;
+                scroll-snap-type: none;
+                cursor: grabbing;
+                user-select: none;
+            }
+
+            /* Approximately 2.5 cards on desktop */
+            .maz-reviews__card {
+                display: flex;
+                flex: 0 0 calc((100% - (var(--mr-gap) * 1.5)) / 2.5);
+                flex-direction: column;
+                min-width: 0;
+                min-height: 390px;
+                padding: 24px;
+                border: 1px solid var(--mr-card-border);
+                border-radius: var(--mr-radius);
+                background: var(--mr-card-background);
+                scroll-snap-align: start;
+            }
+
+            .maz-reviews__card-header {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .maz-reviews__customer {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                min-width: 0;
+            }
+
+            .maz-reviews__avatar {
+                display: flex;
+                flex: 0 0 42px;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                overflow: hidden;
+                border-radius: 50%;
+                background: var(--mr-verified);
+                color: #ffffff;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .maz-reviews__avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .maz-reviews__customer-copy {
+                min-width: 0;
+            }
+
+            .maz-reviews__customer-name {
+                margin: 0 0 3px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .maz-reviews__location {
+                margin: 0;
+                color: var(--mr-muted);
+                font-size: 12px;
+            }
+
+            .maz-reviews__date {
+                flex-shrink: 0;
+                margin: 0;
+                color: var(--mr-muted);
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .maz-reviews__card-stars {
+                direction: rtl;
+                margin-bottom: 16px;
+            }
+
+            .maz-reviews__card-star {
+                display: block;
+                width: 17px;
+                height: 17px;
+            }
+
+            .maz-reviews__title {
+                margin: 0 0 10px;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 1.4;
+            }
+
+            .maz-reviews__text {
+                flex: 1;
+                margin: 0 0 24px;
+                color: #374151;
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .maz-reviews__verified {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: auto;
+            }
+
+            .maz-reviews__verified-icon {
+                display: inline-flex;
+                flex: 0 0 18px;
+                align-items: center;
+                justify-content: center;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: var(--mr-verified);
+                color: #ffffff;
+            }
+
+            .maz-reviews__verified-icon svg {
+                width: 11px;
+                height: 11px;
+            }
+
+            .maz-reviews__verified-text {
+                margin: 0;
+                color: var(--mr-text);
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+            }
+
+            /* Navigation */
+            .maz-reviews__navigation {
+                direction: ltr;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 18px;
+            }
+
+            .maz-reviews__arrow {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                padding: 0;
+                border: 1px solid var(--mr-card-border);
+                border-radius: 50%;
+                background: #ffffff;
+                color: var(--mr-text);
+                cursor: pointer;
+                transition:
+                    background-color 0.2s ease,
+                    color 0.2s ease,
+                    opacity 0.2s ease;
+            }
+
+            .maz-reviews__arrow:hover {
+                background: var(--mr-verified);
+                color: #ffffff;
+            }
+
+            .maz-reviews__arrow:disabled {
+                opacity: 0.35;
+                cursor: default;
+            }
+
+            .maz-reviews__arrow svg {
+                width: 19px;
+                height: 19px;
+            }
+
+            .maz-reviews__pagination {
+                direction: ltr;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 7px;
+                margin-top: 18px;
+            }
+
+            .maz-reviews__dot {
+                position: relative;
+                width: 24px;
+                height: 24px;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .maz-reviews__dot::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--mr-text);
+                content: "";
+                opacity: 0.25;
+                transform: translate(-50%, -50%);
+                transition:
+                    opacity 0.2s ease,
+                    transform 0.2s ease;
+            }
+
+            .maz-reviews__dot.is-active::before {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.25);
+            }
+
+            .maz-reviews__dot:focus-visible,
+            .maz-reviews__arrow:focus-visible {
+                outline: 2px solid var(--mr-verified);
+                outline-offset: 2px;
+            }
+
+            @media (max-width: 989px) {
+
+                /* Approximately 1.5 cards on tablets */
+                .maz-reviews__card {
+                    flex-basis: calc((100% - (var(--mr-gap) * 0.5)) / 1.5);
+                }
+            }
+
+            @media (max-width: 749px) {
+                .maz-reviews {
+                    padding: 40px 15px;
+                }
+
+                .maz-reviews__intro {
+                    margin-bottom: 22px;
+                }
+
+                .maz-reviews__summary {
+                    flex-direction: column;
+                    margin-bottom: 28px;
+                    padding: 18px;
+                }
+
+                .maz-reviews__summary-copy {
+                    text-align: center;
+                }
+
+                /* One card with part of the next card visible */
+                .maz-reviews__card {
+                    flex-basis: 88%;
+                    min-height: 370px;
+                    padding: 20px;
+                }
+
+                .maz-reviews__card-header {
+                    flex-wrap: wrap;
+                }
+
+                .maz-reviews__date {
+                    width: 100%;
+                    padding-right: 54px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .maz-reviews__slider {
+                    scroll-behavior: auto;
+                }
+            }
+        </style>
+
+        <section class="maz-reviews" id="maz-customer-reviews" aria-labelledby="maz-reviews-heading">
+            <div class="maz-reviews__container">
+                <div class="maz-reviews__intro">
+                    <h2 id="maz-reviews-heading" class="maz-reviews__intro-text">
+                        شاهد ما يقوله عملاؤنا عن تجربتهم مع منتجات MAZ
+                    </h2>
+                </div>
+
+                <div class="maz-reviews__summary">
+                    <div class="maz-reviews__summary-stars" id="maz-summary-stars" role="img"
+                        aria-label="تقييم 4.7 من 5 نجوم"></div>
+
+                    <div class="maz-reviews__summary-copy">
+                        <p class="maz-reviews__summary-rating">
+                            تقييم <span id="maz-average-rating">4.7</span> من 5
+                        </p>
+
+                        <p class="maz-reviews__summary-count">
+                            بناءً على <span id="maz-review-count">5,649</span> تقييمًا
+                        </p>
+                    </div>
+                </div>
+
+                <div class="maz-reviews__viewport">
+                    <div class="maz-reviews__slider" id="maz-reviews-slider" tabindex="0" aria-label="تقييمات العملاء">
+                    </div>
+                </div>
+
+                <div class="maz-reviews__navigation">
+                    <button class="maz-reviews__arrow" id="maz-reviews-previous" type="button"
+                        aria-label="التقييم السابق">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+
+                    <button class="maz-reviews__arrow" id="maz-reviews-next" type="button" aria-label="التقييم التالي">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="maz-reviews__pagination" id="maz-reviews-pagination" aria-label="صفحات التقييمات"></div>
+            </div>
         </section>
+
+        <script>
+            (function () {
+                "use strict";
+
+                const reviewsSettings = {
+                    averageRating: 4.7,
+                    totalReviews: "5,649",
+
+                    /* Change to false to disable autoplay */
+                    autoplay: true,
+
+                    /* Autoplay delay in milliseconds */
+                    autoplaySpeed: 5000
+                };
+
+                const reviews = [
+                    {
+                        name: "سارة أحمد",
+                        location: "دبي، الإمارات",
+                        rating: 5,
+                        title: "قطعة مذهلة بكل التفاصيل",
+                        text:
+                            "تجاوزت هذه الفازة كل توقعاتي. جودة التصنيع ممتازة والتفاصيل أجمل بكثير على الطبيعة. أصبحت القطعة الأساسية في غرفة المعيشة.",
+                        date: "15 يوليو 2026",
+                        verifiedLabel: "أوصي بهذا المنتج",
+                        avatar: ""
+                    },
+                    {
+                        name: "محمد خالد",
+                        location: "الرياض، السعودية",
+                        rating: 5,
+                        title: "مثالية لمنزلي",
+                        text:
+                            "الجودة رائعة والتصميم عصري وخالد في الوقت نفسه. حصلت على الكثير من الإطراءات من الضيوف، والمنتج يستحق سعره.",
+                        date: "10 يوليو 2026",
+                        verifiedLabel: "أوصي بهذا المنتج",
+                        avatar: ""
+                    },
+                    {
+                        name: "نور علي",
+                        location: "أبوظبي، الإمارات",
+                        rating: 5,
+                        title: "فخامة في أجمل صورها",
+                        text:
+                            "أحببت هذه القطعة كثيرًا. الاهتمام بالتفاصيل واضح، كما أنها أضافت لمسة راقية وهادئة إلى المساحة.",
+                        date: "5 يوليو 2026",
+                        verifiedLabel: "أوصي بهذا المنتج",
+                        avatar: ""
+                    },
+                    {
+                        name: "يوسف محمود",
+                        location: "جدة، السعودية",
+                        rating: 5,
+                        title: "جودة استثنائية",
+                        text:
+                            "الحرفية في التصنيع استثنائية فعلًا. إنها قطعة مميزة ترفع من جمال أي غرفة، وسأشتري من MAZ مرة أخرى.",
+                        date: "28 يونيو 2026",
+                        verifiedLabel: "أوصي بهذا المنتج",
+                        avatar: ""
+                    }
+                ];
+
+                const section = document.getElementById(
+                    "maz-customer-reviews"
+                );
+
+                const slider = document.getElementById(
+                    "maz-reviews-slider"
+                );
+
+                const previousButton = document.getElementById(
+                    "maz-reviews-previous"
+                );
+
+                const nextButton = document.getElementById(
+                    "maz-reviews-next"
+                );
+
+                const pagination = document.getElementById(
+                    "maz-reviews-pagination"
+                );
+
+                const summaryStars = document.getElementById(
+                    "maz-summary-stars"
+                );
+
+                const averageRatingElement = document.getElementById(
+                    "maz-average-rating"
+                );
+
+                const reviewCountElement = document.getElementById(
+                    "maz-review-count"
+                );
+
+                if (
+                    !section ||
+                    !slider ||
+                    !previousButton ||
+                    !nextButton ||
+                    !pagination ||
+                    !summaryStars ||
+                    !averageRatingElement ||
+                    !reviewCountElement
+                ) {
+                    return;
+                }
+
+                const reducedMotion = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                );
+
+                const starSvg = `
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 2l3.09 6.26L22 9.27l-5 4.87
+             1.18 6.88L12 17.77l-6.18 3.25
+             L7 14.14 2 9.27l6.91-1.01L12 2z"
+        ></path>
+      </svg>
+    `;
+
+                const checkSvg = `
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="m6.5 12.5 3.5 3.5 7.5-8"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+    `;
+
+                function escapeHtml(value) {
+                    return String(value || "")
+                        .replaceAll("&", "&amp;")
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll('"', "&quot;")
+                        .replaceAll("'", "&#039;");
+                }
+
+                function getInitial(name) {
+                    const cleanName = String(name || "").trim();
+
+                    return cleanName
+                        ? Array.from(cleanName)[0]
+                        : "M";
+                }
+
+                function renderSummaryStars(rating) {
+                    let output = "";
+
+                    for (let index = 0; index < 5; index += 1) {
+                        const fillPercentage =
+                            Math.max(
+                                0,
+                                Math.min(1, Number(rating) - index)
+                            ) * 100;
+
+                        output += `
+          <span
+            class="maz-reviews__summary-star maz-reviews__summary-star--empty"
+          >
+            ${starSvg}
+
+            <span
+              class="maz-reviews__summary-star-fill"
+              style="--fill: ${fillPercentage}%"
+            >
+              ${starSvg}
+            </span>
+          </span>
+        `;
+                    }
+
+                    summaryStars.innerHTML = output;
+                }
+
+                function renderCardStars(rating) {
+                    let output = "";
+
+                    for (let index = 1; index <= 5; index += 1) {
+                        const emptyClass =
+                            index > Number(rating)
+                                ? " maz-reviews__card-star--empty"
+                                : "";
+
+                        output += `
+          <span
+            class="maz-reviews__card-star${emptyClass}"
+          >
+            ${starSvg}
+          </span>
+        `;
+                    }
+
+                    return output;
+                }
+
+                function renderAvatar(review) {
+                    if (review.avatar) {
+                        return `
+          <span class="maz-reviews__avatar">
+            <img
+              src="${escapeHtml(review.avatar)}"
+              alt="${escapeHtml(review.name)}"
+              width="42"
+              height="42"
+              loading="lazy"
+            >
+          </span>
+        `;
+                    }
+
+                    return `
+        <span
+          class="maz-reviews__avatar"
+          aria-hidden="true"
+        >
+          ${escapeHtml(getInitial(review.name))}
+        </span>
+      `;
+                }
+
+                function renderReviews() {
+                    slider.innerHTML = reviews
+                        .map(function (review, index) {
+                            const safeRating = Math.max(
+                                0,
+                                Math.min(5, Number(review.rating) || 0)
+                            );
+
+                            return `
+            <article
+              class="maz-reviews__card"
+              data-review-index="${index}"
+              aria-label="تقييم من ${escapeHtml(review.name)}"
+            >
+              <div class="maz-reviews__card-header">
+                <div class="maz-reviews__customer">
+                  ${renderAvatar(review)}
+
+                  <div class="maz-reviews__customer-copy">
+                    <h3 class="maz-reviews__customer-name">
+                      ${escapeHtml(review.name)}
+                    </h3>
+
+                    <p class="maz-reviews__location">
+                      ${escapeHtml(review.location)}
+                    </p>
+                  </div>
+                </div>
+
+                <p class="maz-reviews__date">
+                  ${escapeHtml(review.date)}
+                </p>
+              </div>
+
+              <div
+                class="maz-reviews__card-stars"
+                role="img"
+                aria-label="${safeRating} من 5 نجوم"
+              >
+                ${renderCardStars(safeRating)}
+              </div>
+
+              <h3 class="maz-reviews__title">
+                ${escapeHtml(review.title)}
+              </h3>
+
+              <p class="maz-reviews__text">
+                ${escapeHtml(review.text)}
+              </p>
+
+              <div class="maz-reviews__verified">
+                <span
+                  class="maz-reviews__verified-icon"
+                  aria-hidden="true"
+                >
+                  ${checkSvg}
+                </span>
+
+                <p class="maz-reviews__verified-text">
+                  ${escapeHtml(review.verifiedLabel)}
+                </p>
+              </div>
+            </article>
+          `;
+                        })
+                        .join("");
+                }
+
+                function renderPagination() {
+                    pagination.innerHTML = reviews
+                        .map(function (_, index) {
+                            return `
+            <button
+              class="maz-reviews__dot${index === 0 ? " is-active" : ""
+                                }"
+              type="button"
+              data-review-dot="${index}"
+              aria-label="الانتقال إلى التقييم ${index + 1}"
+            ></button>
+          `;
+                        })
+                        .join("");
+                }
+
+                function getCards() {
+                    return Array.from(
+                        slider.querySelectorAll(".maz-reviews__card")
+                    );
+                }
+
+                function getCurrentIndex() {
+                    const cards = getCards();
+
+                    if (!cards.length) {
+                        return 0;
+                    }
+
+                    const sliderRectangle = slider.getBoundingClientRect();
+                    let closestIndex = 0;
+                    let closestDistance = Infinity;
+
+                    cards.forEach(function (card, index) {
+                        const cardRectangle = card.getBoundingClientRect();
+
+                        /*
+                         * The section uses RTL, so compare the right edges.
+                         */
+                        const distance = Math.abs(
+                            sliderRectangle.right - cardRectangle.right
+                        );
+
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestIndex = index;
+                        }
+                    });
+
+                    return closestIndex;
+                }
+
+                function updateControls() {
+                    const cards = getCards();
+                    const currentIndex = getCurrentIndex();
+
+                    pagination
+                        .querySelectorAll(".maz-reviews__dot")
+                        .forEach(function (dot, index) {
+                            const isActive = index === currentIndex;
+
+                            dot.classList.toggle("is-active", isActive);
+
+                            if (isActive) {
+                                dot.setAttribute("aria-current", "true");
+                            } else {
+                                dot.removeAttribute("aria-current");
+                            }
+                        });
+
+                    previousButton.disabled =
+                        !cards.length || currentIndex <= 0;
+
+                    nextButton.disabled =
+                        !cards.length ||
+                        currentIndex >= cards.length - 1;
+                }
+
+                /*
+                 * Scroll only the horizontal review slider.
+                 *
+                 * Do not use scrollIntoView() here because it can scroll
+                 * the entire webpage down to the review section.
+                 */
+                function goToReview(index) {
+                    const cards = getCards();
+
+                    if (!cards.length) {
+                        return;
+                    }
+
+                    const safeIndex = Math.max(
+                        0,
+                        Math.min(Number(index) || 0, cards.length - 1)
+                    );
+
+                    const targetCard = cards[safeIndex];
+
+                    if (!targetCard) {
+                        return;
+                    }
+
+                    const sliderRectangle = slider.getBoundingClientRect();
+                    const cardRectangle = targetCard.getBoundingClientRect();
+
+                    const horizontalDistance =
+                        cardRectangle.right - sliderRectangle.right;
+
+                    slider.scrollBy({
+                        left: horizontalDistance,
+                        top: 0,
+                        behavior: reducedMotion.matches
+                            ? "auto"
+                            : "smooth"
+                    });
+
+                    window.setTimeout(
+                        updateControls,
+                        reducedMotion.matches ? 0 : 550
+                    );
+                }
+
+                function goPrevious() {
+                    goToReview(getCurrentIndex() - 1);
+                }
+
+                function goNext() {
+                    const cards = getCards();
+                    const currentIndex = getCurrentIndex();
+
+                    if (!cards.length) {
+                        return;
+                    }
+
+                    if (currentIndex >= cards.length - 1) {
+                        goToReview(0);
+                    } else {
+                        goToReview(currentIndex + 1);
+                    }
+                }
+
+                averageRatingElement.textContent =
+                    reviewsSettings.averageRating;
+
+                reviewCountElement.textContent =
+                    reviewsSettings.totalReviews;
+
+                summaryStars.setAttribute(
+                    "aria-label",
+                    "تقييم " +
+                    reviewsSettings.averageRating +
+                    " من 5 نجوم"
+                );
+
+                renderSummaryStars(reviewsSettings.averageRating);
+                renderReviews();
+                renderPagination();
+                updateControls();
+
+                previousButton.addEventListener(
+                    "click",
+                    goPrevious
+                );
+
+                nextButton.addEventListener(
+                    "click",
+                    goNext
+                );
+
+                pagination.addEventListener("click", function (event) {
+                    const button = event.target.closest(
+                        "[data-review-dot]"
+                    );
+
+                    if (!button) {
+                        return;
+                    }
+
+                    goToReview(
+                        Number(button.dataset.reviewDot)
+                    );
+                });
+
+                slider.addEventListener("keydown", function (event) {
+                    if (event.key === "ArrowLeft") {
+                        event.preventDefault();
+                        goNext();
+                    }
+
+                    if (event.key === "ArrowRight") {
+                        event.preventDefault();
+                        goPrevious();
+                    }
+
+                    if (event.key === "Home") {
+                        event.preventDefault();
+                        goToReview(0);
+                    }
+
+                    if (event.key === "End") {
+                        event.preventDefault();
+                        goToReview(reviews.length - 1);
+                    }
+                });
+
+                let scrollTimer = null;
+
+                slider.addEventListener(
+                    "scroll",
+                    function () {
+                        window.clearTimeout(scrollTimer);
+
+                        scrollTimer = window.setTimeout(
+                            updateControls,
+                            100
+                        );
+                    },
+                    { passive: true }
+                );
+
+                /*
+                 * Desktop mouse dragging
+                 */
+                let dragging = false;
+                let pointerId = null;
+                let dragStartX = 0;
+                let dragStartScroll = 0;
+                let draggedDistance = 0;
+                let suppressClick = false;
+
+                slider.addEventListener(
+                    "pointerdown",
+                    function (event) {
+                        if (
+                            event.pointerType === "touch" ||
+                            event.button !== 0
+                        ) {
+                            return;
+                        }
+
+                        dragging = true;
+                        pointerId = event.pointerId;
+                        dragStartX = event.clientX;
+                        dragStartScroll = slider.scrollLeft;
+                        draggedDistance = 0;
+
+                        slider.classList.add("is-dragging");
+                        slider.setPointerCapture(event.pointerId);
+                        stopAutoplay();
+                    }
+                );
+
+                slider.addEventListener(
+                    "pointermove",
+                    function (event) {
+                        if (
+                            !dragging ||
+                            event.pointerId !== pointerId
+                        ) {
+                            return;
+                        }
+
+                        const movement =
+                            event.clientX - dragStartX;
+
+                        draggedDistance = Math.max(
+                            draggedDistance,
+                            Math.abs(movement)
+                        );
+
+                        slider.scrollLeft =
+                            dragStartScroll - movement;
+                    }
+                );
+
+                function stopDragging(event) {
+                    if (
+                        !dragging ||
+                        (
+                            event.pointerId !== undefined &&
+                            pointerId !== event.pointerId
+                        )
+                    ) {
+                        return;
+                    }
+
+                    dragging = false;
+                    slider.classList.remove("is-dragging");
+
+                    if (
+                        pointerId !== null &&
+                        slider.hasPointerCapture(pointerId)
+                    ) {
+                        slider.releasePointerCapture(pointerId);
+                    }
+
+                    pointerId = null;
+
+                    if (draggedDistance > 8) {
+                        suppressClick = true;
+
+                        window.setTimeout(function () {
+                            suppressClick = false;
+                        }, 250);
+                    }
+
+                    goToReview(getCurrentIndex());
+                    startAutoplay();
+                }
+
+                slider.addEventListener(
+                    "pointerup",
+                    stopDragging
+                );
+
+                slider.addEventListener(
+                    "pointercancel",
+                    stopDragging
+                );
+
+                slider.addEventListener(
+                    "lostpointercapture",
+                    stopDragging
+                );
+
+                slider.addEventListener(
+                    "click",
+                    function (event) {
+                        if (!suppressClick) {
+                            return;
+                        }
+
+                        event.preventDefault();
+                        event.stopPropagation();
+                    },
+                    true
+                );
+
+                /*
+                 * Autoplay only when the review section is visible.
+                 */
+                let autoplayTimer = null;
+                let sectionIsVisible = false;
+                let pointerIsOverSection = false;
+                let sectionHasFocus = false;
+                let userIsTouching = false;
+
+                function stopAutoplay() {
+                    if (autoplayTimer !== null) {
+                        window.clearInterval(autoplayTimer);
+                        autoplayTimer = null;
+                    }
+                }
+
+                function canAutoplay() {
+                    return (
+                        reviewsSettings.autoplay &&
+                        reviewsSettings.autoplaySpeed > 0 &&
+                        !reducedMotion.matches &&
+                        sectionIsVisible &&
+                        !pointerIsOverSection &&
+                        !sectionHasFocus &&
+                        !userIsTouching &&
+                        !document.hidden
+                    );
+                }
+
+                function startAutoplay() {
+                    stopAutoplay();
+
+                    if (!canAutoplay()) {
+                        return;
+                    }
+
+                    autoplayTimer = window.setInterval(
+                        goNext,
+                        reviewsSettings.autoplaySpeed
+                    );
+                }
+
+                const visibilityObserver = new IntersectionObserver(
+                    function (entries) {
+                        const entry = entries[0];
+
+                        sectionIsVisible =
+                            Boolean(entry) &&
+                            entry.isIntersecting &&
+                            entry.intersectionRatio >= 0.25;
+
+                        if (sectionIsVisible) {
+                            startAutoplay();
+                        } else {
+                            stopAutoplay();
+                        }
+                    },
+                    {
+                        threshold: [0, 0.25, 0.5, 1]
+                    }
+                );
+
+                visibilityObserver.observe(section);
+
+                section.addEventListener(
+                    "mouseenter",
+                    function () {
+                        pointerIsOverSection = true;
+                        stopAutoplay();
+                    }
+                );
+
+                section.addEventListener(
+                    "mouseleave",
+                    function () {
+                        pointerIsOverSection = false;
+                        startAutoplay();
+                    }
+                );
+
+                section.addEventListener(
+                    "focusin",
+                    function () {
+                        sectionHasFocus = true;
+                        stopAutoplay();
+                    }
+                );
+
+                section.addEventListener(
+                    "focusout",
+                    function (event) {
+                        if (
+                            event.relatedTarget &&
+                            section.contains(event.relatedTarget)
+                        ) {
+                            return;
+                        }
+
+                        sectionHasFocus = false;
+                        startAutoplay();
+                    }
+                );
+
+                section.addEventListener(
+                    "touchstart",
+                    function () {
+                        userIsTouching = true;
+                        stopAutoplay();
+                    },
+                    { passive: true }
+                );
+
+                section.addEventListener(
+                    "touchend",
+                    function () {
+                        userIsTouching = false;
+
+                        window.setTimeout(
+                            startAutoplay,
+                            1000
+                        );
+                    },
+                    { passive: true }
+                );
+
+                section.addEventListener(
+                    "touchcancel",
+                    function () {
+                        userIsTouching = false;
+                        startAutoplay();
+                    },
+                    { passive: true }
+                );
+
+                document.addEventListener(
+                    "visibilitychange",
+                    function () {
+                        if (document.hidden) {
+                            stopAutoplay();
+                        } else {
+                            startAutoplay();
+                        }
+                    }
+                );
+
+                reducedMotion.addEventListener(
+                    "change",
+                    function () {
+                        if (reducedMotion.matches) {
+                            stopAutoplay();
+                        } else {
+                            startAutoplay();
+                        }
+                    }
+                );
+
+                let resizeTimer = null;
+
+                window.addEventListener(
+                    "resize",
+                    function () {
+                        window.clearTimeout(resizeTimer);
+
+                        resizeTimer = window.setTimeout(
+                            function () {
+                                goToReview(getCurrentIndex());
+                                updateControls();
+                            },
+                            150
+                        );
+                    }
+                );
+            })();
+        </script>
+        <!-- END MAZ CUSTOMER REVIEWS -->
+        <!-- MAZ ABOUT SECTION -->
+        <style>
+            .maz-about-section {
+                direction: rtl;
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 40px 20px 32px;
+                border: 0;
+                background: #ffffff;
+                color: #111111;
+                font-family: inherit;
+                text-align: center;
+            }
+
+            .maz-about-section,
+            .maz-about-section *,
+            .maz-about-section *::before,
+            .maz-about-section *::after {
+                box-sizing: border-box;
+            }
+
+            .maz-about-section__container {
+                display: block;
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            .maz-about-section__title {
+                display: block !important;
+                width: 100% !important;
+                margin: 0 0 36px !important;
+                padding: 0 !important;
+                color: #000000 !important;
+                font-family: inherit !important;
+                font-size: 48px !important;
+                font-weight: 700 !important;
+                line-height: 1.25 !important;
+                text-align: center !important;
+                white-space: normal !important;
+            }
+
+            .maz-about-section__title span {
+                direction: ltr;
+                display: inline-block;
+                color: #000000;
+            }
+
+            .maz-about-section__text {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                color: #202020;
+                font-family: inherit;
+                font-size: 17px;
+                font-weight: 400;
+                line-height: 1.9;
+                text-align: center;
+            }
+
+            .maz-about-section__text span {
+                display: block;
+            }
+
+            @media (max-width: 768px) {
+                .maz-about-section {
+                    padding: 36px 20px 30px;
+                }
+
+                .maz-about-section__title {
+                    margin-bottom: 26px !important;
+                    font-size: 36px !important;
+                }
+
+                .maz-about-section__text {
+                    font-size: 15px;
+                    line-height: 1.9;
+                }
+
+                .maz-about-section__text span {
+                    display: inline;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .maz-about-section {
+                    padding: 30px 16px 26px;
+                }
+
+                .maz-about-section__title {
+                    margin-bottom: 22px !important;
+                    font-size: 30px !important;
+                }
+
+                .maz-about-section__text {
+                    font-size: 14px;
+                    line-height: 1.85;
+                }
+            }
+        </style>
+
+        <section class="maz-about-section" dir="rtl" aria-labelledby="maz-about-title">
+            <div class="maz-about-section__container">
+                <h2 class="maz-about-section__title" id="maz-about-title">
+                    لماذا <span>MAZ</span>
+                </h2>
+
+                <p class="maz-about-section__text">
+                    <span>
+                        في MAZ نصنع قطع ديكور إماراتية حصرية من الألومنيوم، مصممة لتمنح كل مساحة حضورًا لا يشبه غيرها.
+                    </span>
+
+                    <span>
+                        من تصور القطعة داخل منزلك إلى تصميمها وتسليمها وتنسيقها في مكانها، يرافقك فريق MAZ حتى ترى
+                        الفكرة كما تخيلتها.
+                    </span>
+                </p>
+            </div>
+        </section>
+        <!-- END MAZ ABOUT SECTION -->
+        <!-- MAZ IMAGE CARDS -->
+        <style>
+            .maz-image-cards {
+                --mic-background: #ffffff;
+                --mic-card-background: #ffffff;
+                --mic-border: #e0e0e0;
+                --mic-title: #111111;
+                --mic-text: #666666;
+                --mic-accent: #2f6f4e;
+                --mic-gap: 30px;
+                --mic-radius: 10px;
+
+                direction: rtl;
+                display: block;
+                width: 100%;
+                padding: 50px 0;
+                overflow: hidden;
+                background: var(--mic-background);
+                font-family: inherit;
+            }
+
+            .maz-image-cards,
+            .maz-image-cards *,
+            .maz-image-cards *::before,
+            .maz-image-cards *::after {
+                box-sizing: border-box;
+            }
+
+            .maz-image-cards__container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .maz-image-cards__heading {
+                display: block !important;
+                width: 100% !important;
+                margin: 0 0 40px !important;
+                padding: 0 !important;
+                color: var(--mic-title) !important;
+                font-size: 32px !important;
+                font-weight: 700 !important;
+                line-height: 1.3 !important;
+                text-align: center !important;
+            }
+
+            /* Cards container */
+            .maz-image-cards__track {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: var(--mic-gap);
+                width: 100%;
+            }
+
+            .maz-image-cards__card {
+                display: flex;
+                min-width: 0;
+                overflow: hidden;
+                border: 1px solid var(--mic-border);
+                border-radius: var(--mic-radius);
+                background: var(--mic-card-background);
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+            }
+
+            .maz-image-cards__card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
+            }
+
+            .maz-image-cards__card-inner {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .maz-image-cards__card-inner:focus-visible {
+                outline: 3px solid var(--mic-accent);
+                outline-offset: -3px;
+            }
+
+            .maz-image-cards__image-wrapper {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                overflow: hidden;
+                background: #f3f4f6;
+            }
+
+            .maz-image-cards__image {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .maz-image-cards__card:hover .maz-image-cards__image {
+                transform: scale(1.03);
+            }
+
+            .maz-image-cards__placeholder {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                color: #9ca3af;
+                background:
+                    linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            }
+
+            .maz-image-cards__placeholder svg {
+                width: 64px;
+                height: 64px;
+            }
+
+            .maz-image-cards__content {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px;
+                text-align: right;
+            }
+
+            .maz-image-cards__title {
+                margin: 0 0 14px;
+                color: var(--mic-title);
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.4;
+            }
+
+            .maz-image-cards__description {
+                flex: 1;
+                margin: 0 0 18px;
+                color: var(--mic-text);
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .maz-image-cards__button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 42px;
+                padding: 10px 22px;
+                border: 0;
+                border-radius: 5px;
+                background: var(--mic-accent);
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: 600;
+                text-decoration: none;
+                transition:
+                    background-color 0.2s ease,
+                    transform 0.2s ease;
+            }
+
+            .maz-image-cards__button:hover {
+                background: #1e4b33;
+            }
+
+            .maz-image-cards__text-link {
+                color: var(--mic-accent);
+                font-size: 14px;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            .maz-image-cards__text-link:hover {
+                text-decoration: underline;
+            }
+
+            .maz-image-cards__pagination {
+                display: none;
+            }
+
+            /* Mobile horizontal slider */
+            @media (max-width: 749px) {
+                .maz-image-cards {
+                    padding: 40px 0;
+                }
+
+                .maz-image-cards__container {
+                    padding: 0 16px;
+                }
+
+                .maz-image-cards__heading {
+                    margin-bottom: 28px !important;
+                    font-size: 26px !important;
+                }
+
+                .maz-image-cards__track {
+                    display: flex;
+                    gap: 16px;
+                    padding: 2px 2px 16px;
+                    overflow-x: auto;
+                    scroll-behavior: smooth;
+                    scroll-snap-type: x mandatory;
+                    scrollbar-width: none;
+                    cursor: grab;
+                }
+
+                .maz-image-cards__track::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .maz-image-cards__track.is-dragging {
+                    scroll-behavior: auto;
+                    scroll-snap-type: none;
+                    cursor: grabbing;
+                    user-select: none;
+                }
+
+                .maz-image-cards__card {
+                    flex: 0 0 88%;
+                    scroll-snap-align: start;
+                }
+
+                .maz-image-cards__card:hover {
+                    transform: none;
+                    box-shadow: none;
+                }
+
+                .maz-image-cards__image-wrapper {
+                    height: 250px;
+                }
+
+                .maz-image-cards__content {
+                    padding: 20px;
+                }
+
+                .maz-image-cards__pagination {
+                    direction: ltr;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 7px;
+                    margin-top: 5px;
+                }
+
+                .maz-image-cards__dot {
+                    position: relative;
+                    width: 24px;
+                    height: 24px;
+                    padding: 0;
+                    border: 0;
+                    background: transparent;
+                    cursor: pointer;
+                }
+
+                .maz-image-cards__dot::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: var(--mic-title);
+                    content: "";
+                    opacity: 0.25;
+                    transform: translate(-50%, -50%);
+                    transition:
+                        opacity 0.2s ease,
+                        transform 0.2s ease;
+                }
+
+                .maz-image-cards__dot.is-active::before {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1.25);
+                }
+            }
+
+            @media (max-width: 380px) {
+                .maz-image-cards__card {
+                    flex-basis: 92%;
+                }
+
+                .maz-image-cards__image-wrapper {
+                    height: 220px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .maz-image-cards__track {
+                    scroll-behavior: auto;
+                }
+
+                .maz-image-cards__card,
+                .maz-image-cards__image {
+                    transition: none;
+                }
+            }
+        </style>
+
+        <section class="maz-image-cards" id="maz-image-cards" aria-labelledby="maz-image-cards-title">
+            <div class="maz-image-cards__container">
+                <h2 class="maz-image-cards__heading" id="maz-image-cards-title">
+                    مجموعاتنا المميزة
+                </h2>
+
+                <div class="maz-image-cards__track" id="maz-image-cards-track" tabindex="0" aria-label="مجموعات MAZ">
+                </div>
+
+                <div class="maz-image-cards__pagination" id="maz-image-cards-pagination"
+                    aria-label="التنقل بين البطاقات"></div>
+            </div>
+        </section>
+
+        <script>
+            (function () {
+                "use strict";
+
+                /*
+                 * Edit the three cards below.
+                 *
+                 * image: image file path or full URL.
+                 * link: destination page or "#".
+                 * showButton: true displays a button.
+                 * showButton: false displays a simple text link.
+                 */
+                const imageCards = [
+                    {
+                        image: "p1_1.webp",
+                        alt: "فازات MAZ الفاخرة",
+                        title: "المساحة تبدو فارغة ولافتة للنظر بشكل سلبي",
+                        description:
+                            "شجرة الخرشوفة بارتفاع 2.4 متر تملأ الفراغ بتصميم أنيق يمنح المكان حضورًا متوازنًا دون الحاجة إلى عدة قطع ديكور",
+                        link: "#",
+                        showButton: false
+                    },
+                    {
+                        image: "VASE_1_3.webp",
+                        alt: "ديكور منزلي من MAZ",
+                        title: "قطع الديكور الثقيلة يصعب نقلها وتنظيفها",
+                        description:
+                            "شجرة الخرشوفة وفازتها مصممتان كقطع منفصلة من الألومنيوم خفيف الوزن، ما يجعل النقل والتنظيف وإعادة الترتيب أسهل بكثير",
+                        link: "#",
+                        showButton: false
+                    },
+                    {
+                        image: "VASE_2_1.webp",
+                        alt: "أحدث منتجات MAZ",
+                        title: "بعض الديكورات تتأثر بالرطوبة مع الوقت",
+                        description:
+                            "شجرة الخرشوفة مصنوعة من الألومنيوم المقاوم للرطوبة، لتحافظ على شكلها وتشطيبها الأنيق لفترة طويلة مع الاستخدام اليومي",
+                        link: "#",
+                        showButton: false
+                    }
+                ];
+
+                const track = document.getElementById(
+                    "maz-image-cards-track"
+                );
+
+                const pagination = document.getElementById(
+                    "maz-image-cards-pagination"
+                );
+
+                if (!track || !pagination) {
+                    return;
+                }
+
+                const placeholderIcon = `
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <rect
+          x="3"
+          y="4"
+          width="18"
+          height="16"
+          rx="2"
+          stroke="currentColor"
+          stroke-width="1.5"
+        ></rect>
+
+        <circle
+          cx="9"
+          cy="9"
+          r="2"
+          stroke="currentColor"
+          stroke-width="1.5"
+        ></circle>
+
+        <path
+          d="m4 18 5-5 3 3 2-2 6 6"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+    `;
+
+                function escapeHtml(value) {
+                    return String(value || "")
+                        .replaceAll("&", "&amp;")
+                        .replaceAll("<", "&lt;")
+                        .replaceAll(">", "&gt;")
+                        .replaceAll('"', "&quot;")
+                        .replaceAll("'", "&#039;");
+                }
+
+                function renderImage(card) {
+                    if (!card.image) {
+                        return `
+          <div class="maz-image-cards__placeholder">
+            ${placeholderIcon}
+          </div>
+        `;
+                    }
+
+                    return `
+        <img
+          class="maz-image-cards__image"
+          src="${escapeHtml(card.image)}"
+          alt="${escapeHtml(card.alt || card.title)}"
+          loading="lazy"
+          width="800"
+          height="600"
+          onerror="
+            this.style.display='none';
+            this.nextElementSibling.style.display='flex';
+          "
+        >
+
+        <div
+          class="maz-image-cards__placeholder"
+          style="display:none"
+        >
+          ${placeholderIcon}
+        </div>
+      `;
+                }
+
+                function renderLink(card) {
+                    if (!card.linkText) {
+                        return "";
+                    }
+
+                    if (card.showButton) {
+                        return `
+          <span class="maz-image-cards__button">
+            ${escapeHtml(card.linkText)}
+          </span>
+        `;
+                    }
+
+                    return `
+        <span class="maz-image-cards__text-link">
+          ${escapeHtml(card.linkText)}
+        </span>
+      `;
+                }
+
+                track.innerHTML = imageCards
+                    .map(function (card, index) {
+                        return `
+          <article
+            class="maz-image-cards__card"
+            data-image-card="${index}"
+          >
+            <a
+              class="maz-image-cards__card-inner"
+              aria-label="${escapeHtml(card.title)}"
+            >
+              <div class="maz-image-cards__image-wrapper">
+                ${renderImage(card)}
+              </div>
+
+              <div class="maz-image-cards__content">
+                <h3 class="maz-image-cards__title">
+                </h3>
+
+                <p class="maz-image-cards__description">
+                  ${escapeHtml(card.description)}
+                </p>
+
+                ${renderLink(card)}
+              </div>
+            </a>
+          </article>
+        `;
+                    })
+                    .join("");
+
+                pagination.innerHTML = imageCards
+                    .map(function (_, index) {
+                        return `
+          <button
+            class="maz-image-cards__dot${index === 0 ? " is-active" : ""}"
+            type="button"
+            data-image-card-dot="${index}"
+            aria-label="الانتقال إلى البطاقة ${index + 1}"
+          ></button>
+        `;
+                    })
+                    .join("");
+
+                function getCards() {
+                    return Array.from(
+                        track.querySelectorAll(".maz-image-cards__card")
+                    );
+                }
+
+                function getCurrentIndex() {
+                    const cards = getCards();
+
+                    if (!cards.length) {
+                        return 0;
+                    }
+
+                    const trackRect = track.getBoundingClientRect();
+                    let selectedIndex = 0;
+                    let selectedDistance = Infinity;
+
+                    cards.forEach(function (card, index) {
+                        const cardRect = card.getBoundingClientRect();
+                        const distance = Math.abs(
+                            trackRect.right - cardRect.right
+                        );
+
+                        if (distance < selectedDistance) {
+                            selectedDistance = distance;
+                            selectedIndex = index;
+                        }
+                    });
+
+                    return selectedIndex;
+                }
+
+                function updatePagination() {
+                    const currentIndex = getCurrentIndex();
+
+                    pagination
+                        .querySelectorAll(".maz-image-cards__dot")
+                        .forEach(function (dot, index) {
+                            const active = index === currentIndex;
+
+                            dot.classList.toggle("is-active", active);
+
+                            if (active) {
+                                dot.setAttribute("aria-current", "true");
+                            } else {
+                                dot.removeAttribute("aria-current");
+                            }
+                        });
+                }
+
+                function goToCard(index) {
+                    const cards = getCards();
+
+                    if (!cards[index]) {
+                        return;
+                    }
+
+                    cards[index].scrollIntoView({
+                        behavior: window.matchMedia(
+                            "(prefers-reduced-motion: reduce)"
+                        ).matches
+                            ? "auto"
+                            : "smooth",
+                        block: "nearest",
+                        inline: "start"
+                    });
+                }
+
+                pagination.addEventListener("click", function (event) {
+                    const button = event.target.closest(
+                        "[data-image-card-dot]"
+                    );
+
+                    if (!button) {
+                        return;
+                    }
+
+                    goToCard(Number(button.dataset.imageCardDot));
+                });
+
+                track.addEventListener("keydown", function (event) {
+                    const currentIndex = getCurrentIndex();
+
+                    if (event.key === "ArrowLeft") {
+                        event.preventDefault();
+                        goToCard(
+                            Math.min(currentIndex + 1, imageCards.length - 1)
+                        );
+                    }
+
+                    if (event.key === "ArrowRight") {
+                        event.preventDefault();
+                        goToCard(Math.max(currentIndex - 1, 0));
+                    }
+                });
+
+                let scrollTimer;
+
+                track.addEventListener(
+                    "scroll",
+                    function () {
+                        window.clearTimeout(scrollTimer);
+                        scrollTimer = window.setTimeout(
+                            updatePagination,
+                            80
+                        );
+                    },
+                    { passive: true }
+                );
+
+                /* Desktop mouse dragging */
+                let dragging = false;
+                let startX = 0;
+                let startScrollLeft = 0;
+
+                track.addEventListener("pointerdown", function (event) {
+                    if (
+                        window.innerWidth > 749 ||
+                        event.pointerType === "touch"
+                    ) {
+                        return;
+                    }
+
+                    dragging = true;
+                    startX = event.clientX;
+                    startScrollLeft = track.scrollLeft;
+
+                    track.classList.add("is-dragging");
+                    track.setPointerCapture(event.pointerId);
+                });
+
+                track.addEventListener("pointermove", function (event) {
+                    if (!dragging) {
+                        return;
+                    }
+
+                    const movement = event.clientX - startX;
+                    track.scrollLeft = startScrollLeft - movement;
+                });
+
+                function stopDragging(event) {
+                    if (!dragging) {
+                        return;
+                    }
+
+                    dragging = false;
+                    track.classList.remove("is-dragging");
+
+                    if (
+                        event.pointerId !== undefined &&
+                        track.hasPointerCapture(event.pointerId)
+                    ) {
+                        track.releasePointerCapture(event.pointerId);
+                    }
+                }
+
+                track.addEventListener("pointerup", stopDragging);
+                track.addEventListener("pointercancel", stopDragging);
+
+                window.addEventListener("resize", updatePagination);
+                updatePagination();
+            })();
+        </script>
+        <!-- END MAZ IMAGE CARDS -->
+        <!-- MAZ FOOTER -->
+        <style>
+            .maz-footer {
+                --maz-footer-bg: #103f2d;
+                --maz-footer-card: #1e503b;
+                --maz-footer-title: #f2ad2f;
+                --maz-footer-text: #ffffff;
+                --maz-footer-muted: #d2e5db;
+                --maz-footer-dot: #d8a12d;
+
+                direction: rtl;
+                position: relative;
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 22px 0 12px;
+                overflow: hidden;
+                background: var(--maz-footer-bg);
+                color: var(--maz-footer-text);
+                font-family: inherit;
+            }
+
+            .maz-footer,
+            .maz-footer *,
+            .maz-footer *::before,
+            .maz-footer *::after {
+                box-sizing: border-box;
+            }
+
+            .maz-footer__container {
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 3px;
+            }
+
+            /* Four-card layout */
+            .maz-footer__cards {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 11px;
+                width: 100%;
+            }
+
+            .maz-footer__card {
+                min-width: 0;
+                min-height: 238px;
+                padding: 23px 12px 18px;
+                border-radius: 12px;
+                background: var(--maz-footer-card);
+            }
+
+            .maz-footer__title {
+                display: block !important;
+                width: 100% !important;
+                margin: 0 0 20px !important;
+                padding: 0 8px !important;
+                color: var(--maz-footer-title) !important;
+                font-size: 14px !important;
+                font-weight: 700 !important;
+                line-height: 1.4 !important;
+                text-align: right !important;
+            }
+
+            .maz-footer__title--brand {
+                direction: rtl;
+            }
+
+            .maz-footer__title--brand span {
+                direction: ltr;
+                display: inline-block;
+                margin-right: 2px;
+            }
+
+            .maz-footer__list {
+                display: flex;
+                flex-direction: column;
+                gap: 17px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .maz-footer__item {
+                position: relative;
+                margin: 0;
+                padding: 0 16px 0 3px;
+                color: var(--maz-footer-text);
+                font-size: 11.5px;
+                font-weight: 400;
+                line-height: 1.75;
+                text-align: right;
+            }
+
+            .maz-footer__item::before {
+                position: absolute;
+                top: 0.78em;
+                right: 2px;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--maz-footer-dot);
+                box-shadow: 0 0 0 3px rgba(216, 161, 45, 0.12);
+                content: "";
+                transform: translateY(-50%);
+            }
+
+            .maz-footer__link {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .maz-footer__link:hover {
+                color: var(--maz-footer-title);
+            }
+
+            .maz-footer__link:focus-visible,
+            .maz-footer__social-link:focus-visible,
+            .maz-footer__top-button:focus-visible {
+                outline: 3px solid var(--maz-footer-title);
+                outline-offset: 3px;
+            }
+
+            /* Bottom section */
+            .maz-footer__bottom {
+                position: relative;
+                min-height: 210px;
+                padding: 78px 20px 0;
+            }
+
+            .maz-footer__socials {
+                direction: ltr;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 3px;
+            }
+
+            .maz-footer__social-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 51px;
+                height: 51px;
+                border-radius: 50%;
+                background: #000000;
+                color: #ffffff;
+                text-decoration: none;
+                transition:
+                    background-color 0.2s ease,
+                    color 0.2s ease,
+                    transform 0.2s ease;
+            }
+
+            .maz-footer__social-link:hover {
+                background: var(--maz-footer-title);
+                color: #0f3e2d;
+                transform: translateY(-2px);
+            }
+
+            .maz-footer__social-link svg {
+                display: block;
+                width: 23px;
+                height: 23px;
+            }
+
+            .maz-footer__top-button {
+                position: absolute;
+                top: 93px;
+                right: 14px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 58px;
+                height: 58px;
+                padding: 0;
+                border: 0;
+                border-radius: 50%;
+                background: #000000;
+                color: #ffffff;
+                cursor: pointer;
+                transition:
+                    background-color 0.2s ease,
+                    color 0.2s ease,
+                    transform 0.2s ease;
+            }
+
+            .maz-footer__top-button:hover {
+                background: var(--maz-footer-title);
+                color: #0f3e2d;
+                transform: translateY(-3px);
+            }
+
+            .maz-footer__top-button svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .maz-footer__copyright {
+                margin: 66px 0 0;
+                color: var(--maz-footer-muted);
+                font-size: 14px;
+                line-height: 1.5;
+                text-align: center;
+            }
+
+            .maz-footer__copyright-brand {
+                direction: ltr;
+                display: inline-block;
+                margin-right: 4px;
+                color: #bce3d1;
+                font-size: 16px;
+            }
+
+            @media (min-width: 700px) {
+                .maz-footer {
+                    padding-top: 40px;
+                }
+
+                .maz-footer__container {
+                    padding: 0 24px;
+                }
+
+                .maz-footer__cards {
+                    gap: 20px;
+                }
+
+                .maz-footer__card {
+                    min-height: 245px;
+                    padding: 28px 24px;
+                }
+
+                .maz-footer__title {
+                    font-size: 17px !important;
+                }
+
+                .maz-footer__item {
+                    font-size: 8;
+                }
+            }
+
+            @media (max-width: 380px) {
+                .maz-footer__cards {
+                    gap: 7px;
+                }
+
+                .maz-footer__card {
+                    padding: 20px 8px 15px;
+                }
+
+                .maz-footer__title {
+                    padding: 0 5px !important;
+                    font-size: 12px !important;
+                }
+
+                .maz-footer__item {
+                    padding-right: 13px;
+                    font-size: 8px;
+                }
+
+                .maz-footer__social-link {
+                    width: 47px;
+                    height: 47px;
+                }
+
+                .maz-footer__top-button {
+                    right: 10px;
+                    width: 54px;
+                    height: 54px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+
+                .maz-footer__social-link,
+                .maz-footer__top-button {
+                    transition: none;
+                }
+            }
+        </style>
+
+        <footer class="maz-footer" dir="rtl">
+            <div class="maz-footer__container">
+                <div class="maz-footer__cards" aria-label="معلومات المتجر">
+                    <!-- Customer service -->
+                    <section class="maz-footer__card" aria-labelledby="maz-footer-service-title">
+                        <h2 class="maz-footer__title" id="maz-footer-service-title">
+                            خدمة العملاء
+                        </h2>
+
+                        <ul class="maz-footer__list">
+                            <li class="maz-footer__item">
+                                التوصيل داخل الإمارات خلال يومين إلى 9 أيام
+                            </li>
+
+                            <li class="maz-footer__item">
+                                إمكانية الاسترجاع خلال 30 يومًا من الشراء
+                            </li>
+
+                            <li class="maz-footer__item">
+                                وسائل دفع آمنة وموثوقة
+                            </li>
+
+                            <li class="maz-footer__item">
+                                دعم وخدمة ما بعد البيع
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- About MAZ -->
+                    <section class="maz-footer__card" aria-labelledby="maz-footer-about-title">
+                        <h2 class="maz-footer__title maz-footer__title--brand" id="maz-footer-about-title">
+                            عن <span>MAZ</span>
+                        </h2>
+
+                        <ul class="maz-footer__list">
+                            <li class="maz-footer__item">
+                                قطع ديكور إماراتية بتصاميم حصرية
+                            </li>
+
+                            <li class="maz-footer__item">
+                                مصنوعة من الألومنيوم عالي الجودة
+                            </li>
+
+                            <li class="maz-footer__item">
+                                مناسبة للمساحات الداخلية والخارجية
+                            </li>
+
+                            <li class="maz-footer__item">
+                                تصاميم تمنح كل مساحة حضورًا مميزًا
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Product features -->
+                    <section class="maz-footer__card" aria-labelledby="maz-footer-features-title">
+                        <h2 class="maz-footer__title" id="maz-footer-features-title">
+                            مميزات منتجاتنا
+                        </h2>
+
+                        <ul class="maz-footer__list">
+                            <li class="maz-footer__item">
+                                خفيفة الوزن وسهلة النقل وإعادة الترتيب
+                            </li>
+
+                            <li class="maz-footer__item">
+                                مقاومة للماء والرطوبة
+                            </li>
+
+                            <li class="maz-footer__item">
+                                سهلة التنظيف والعناية اليومية
+                            </li>
+
+                            <li class="maz-footer__item">
+                                متينة ومصممة لتدوم طويلًا
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Contact -->
+                    <section class="maz-footer__card" aria-labelledby="maz-footer-contact-title">
+                        <h2 class="maz-footer__title" id="maz-footer-contact-title">
+                            تواصل معنا
+                        </h2>
+
+                        <ul class="maz-footer__list">
+                            <li class="maz-footer__item">
+                                متجر إلكتروني إماراتي
+                            </li>
+
+                            <li class="maz-footer__item">
+                                نخدم جميع إمارات الدولة
+                            </li>
+
+                            <li class="maz-footer__item">
+                                خدمة العملاء متاحة يوميًا
+                            </li>
+
+                            <li class="maz-footer__item">
+                                يسعدنا الرد على جميع استفساراتكم
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="maz-footer__bottom">
+                    <div class="maz-footer__socials" aria-label="حسابات التواصل الاجتماعي">
+                        <!-- TikTok -->
+                        <a class="maz-footer__social-link" href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M15.7 3c.2 1.7 1.2 3.1 2.7 4
+                 .8.5 1.7.8 2.6.8v3.4
+                 c-1.9 0-3.7-.6-5.2-1.7v7.1
+                 a6.2 6.2 0 1 1-5.3-6.1v3.5
+                 a2.8 2.8 0 1 0 2 2.7V3h5z"></path>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a class="maz-footer__social-link" href="#" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"
+                                    stroke-width="2.2"></rect>
+
+                                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.2"></circle>
+
+                                <circle cx="17.4" cy="6.7" r="1.2" fill="currentColor"></circle>
+                            </svg>
+                        </a>
+                    </div>
+
+
+
+                    <p class="maz-footer__copyright">
+                        جميع الحقوق محفوظة ©
+                        <span class="maz-footer__copyright-brand">MAZ</span>
+                        <span id="maz-footer-year"></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+                const year = document.getElementById("maz-footer-year");
+                const topButton = document.getElementById(
+                    "maz-footer-top-button"
+                );
+
+                if (year) {
+                    year.textContent = new Date().getFullYear();
+                }
+
+                if (topButton) {
+                    topButton.addEventListener("click", function () {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: window.matchMedia(
+                                "(prefers-reduced-motion: reduce)"
+                            ).matches
+                                ? "auto"
+                                : "smooth"
+                        });
+                    });
+                }
+            })();
+        </script>
+        <!-- END MAZ FOOTER -->
     </main>
-    <footer><a class="logo">MAZ<small>DECORATIONS</small></a>
-        <p>قطع ديكور إماراتية بتصاميم حصرية، مصنوعة لتدوم.</p>
-        <p>جميع الحقوق محفوظة © MAZ</p>
-    </footer>
+
     <div class="sticky">
         <div><b>فازة الخرشوفه</b><span>AED 1,800.00</span></div><button>أضف إلى السلة</button>
     </div>
