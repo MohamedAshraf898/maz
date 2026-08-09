@@ -15,7 +15,7 @@ const variants = [
         id: id,
         name: name,
         price: 1800,
-        images: [1, 2, 3, 4].map(function (number) {
+        images: [1, 2, 3].map(function (number) {
             return (
                 "fazat-alkharshoufa-" +
                 file +
@@ -656,7 +656,7 @@ function initializePage() {
 
     if (lifestyleImage) {
         lifestyleImage.src = imageUrl(
-            variants[1].images[3]
+            variants[1].images[2]
         );
 
         lifestyleImage.alt =
